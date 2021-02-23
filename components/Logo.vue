@@ -8,13 +8,13 @@
 .logo_name {
   display: inline-block;
   font-size: 24px;
-  color: #355e41;
+  color: $green-dark;
   font-weight: 300;
   transition: 0.2s;
 
   &:hover {
     transition: 0.2s;
-    color: #41b883;
+    color: $green-light;
   }
 }
 </style>
