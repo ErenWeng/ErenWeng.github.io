@@ -4,6 +4,12 @@
   </NuxtLink>
 </template>
 
+<script>
+export default {
+  name: 'Logo',
+}
+</script>
+
 <style lang="scss" scoped>
 .logo_name {
   display: inline-block;
@@ -11,7 +17,6 @@
   color: $green-dark;
   font-weight: 300;
   transition: 0.2s;
-
   &:hover {
     transition: 0.2s;
     color: $green-light;

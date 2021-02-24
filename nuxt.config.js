@@ -14,7 +14,9 @@ export default {
   },
   css: [],
   plugins: [],
-  components: true,
+  components: {
+    dirs: ['~/components', '~/components/page'],
+  },
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
   modules: ['@nuxtjs/axios', '@nuxt/content', '@nuxtjs/style-resources'],
   styleResources: {
