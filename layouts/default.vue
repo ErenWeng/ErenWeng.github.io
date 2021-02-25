@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SideBar />
+    <Sidebar />
     <section class="blog_container">
       <Nuxt />
     </section>

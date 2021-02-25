@@ -1,5 +1,5 @@
 <template>
-  <aside :class="['side_bar', { show_sidebar: $store.state.toggleSidebar }]">
+  <aside :class="['sidebar', { show_sidebar: $store.state.toggleSidebar }]">
     <div class="toggle_sidebar" @click="$store.commit('TOGGLE_SIDEBAR')">
       <ph-caret-left :size="24" weight="thin" class="icon" />
     </div>
@@ -14,13 +14,13 @@
 import { PhCaretLeft } from 'phosphor-vue'
 
 export default {
-  name: 'SideBar',
+  name: 'Sidebar',
   components: { PhCaretLeft },
 }
 </script>
 
 <style lang="scss" scoped>
-.side_bar {
+.sidebar {
   position: fixed;
   z-index: 100;
   height: 100vh;
