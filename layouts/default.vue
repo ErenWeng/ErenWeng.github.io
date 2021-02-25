@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Nuxt />
+    <SideBar />
+    <section class="blog_container">
+      <Nuxt />
+    </section>
+
     <!-- for window's width changing -->
     <div style="display: none">{{ $store.state.isDesktop }}</div>
   </div>
@@ -16,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -34,5 +38,10 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  transition: 0.2s;
+}
+
+.blog_container {
+  margin-left: $side-bar-width;
 }
 </style>

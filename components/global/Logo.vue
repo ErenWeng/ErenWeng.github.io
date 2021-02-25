@@ -14,11 +14,12 @@ export default {
 .logo_name {
   display: inline-block;
   font-size: 24px;
+  line-height: 24px;
+  padding: 8px;
   color: $green-dark;
   font-weight: 300;
   transition: 0.2s;
   &:hover {
-    transition: 0.2s;
     color: $green-light;
   }
 }

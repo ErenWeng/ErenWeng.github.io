@@ -15,7 +15,7 @@ export default {
   css: ['@/assets/css/index.scss', '@/assets/css/reset.css'],
   plugins: [],
   components: {
-    dirs: ['~/components', '~/components/page'],
+    dirs: ['~/components', '~/components/page', '~/components/blog'],
   },
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
   modules: ['@nuxtjs/axios', '@nuxt/content', '@nuxtjs/style-resources'],
