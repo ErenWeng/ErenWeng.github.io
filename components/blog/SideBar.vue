@@ -1,16 +1,21 @@
 <template>
-  <aside class="side_bar">
+  <aside :class="['side_bar', { show_sidebar: $store.state.toggleSidebar }]">
+    <div class="toggle_sidebar" @click="$store.commit('TOGGLE_SIDEBAR')">
+      <ph-caret-left :size="24" weight="thin" class="icon" />
+    </div>
     <div class="logo">
       <Logo />
     </div>
-
     <BlogNav class="blog_nav" />
   </aside>
 </template>
 
 <script>
+import { PhCaretLeft } from 'phosphor-vue'
+
 export default {
   name: 'SideBar',
+  components: { PhCaretLeft },
 }
 </script>
 
@@ -25,10 +30,35 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 40px 0 0;
-}
-.logo {
-  display: block;
-  text-align: center;
-  margin: 0 auto 1rem;
+  .toggle_sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    .icon {
+      color: $blue-dark;
+      transition: 0.2s;
+      &:hover {
+        color: $green-light;
+      }
+    }
+  }
+  .logo {
+    display: block;
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  &.show_sidebar {
+    .toggle_sidebar {
+      .icon {
+        transform: scaleX(-1);
+      }
+    }
+  }
 }
 </style>
