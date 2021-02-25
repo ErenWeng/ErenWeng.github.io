@@ -1,8 +1,20 @@
 <template>
   <div>
     <Nuxt />
+    <!-- for window's width changing -->
+    <div style="display: none">{{ $store.state.isDesktop }}</div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    window.onresize = () => {
+      this.$store.commit('GET_DEVICE_WIDTH', window.innerWidth >= 768)
+    }
+  },
+}
+</script>
 
 <style>
 html {
