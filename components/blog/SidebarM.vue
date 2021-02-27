@@ -1,13 +1,18 @@
 <template>
-  <aside class="sidebar">
-    <div class="toggle_sidebar" @click="$store.dispatch('toggleSidebar')">
-      <ph-caret-left :size="24" weight="thin" class="icon" />
-    </div>
-    <div class="logo">
-      <Logo />
-    </div>
-    <div class="blog_nav">
-      <BlogNav />
+  <aside
+    :class="['sidebar_m', { show_sidebar_m: !$store.state.toggleSidebar }]"
+  >
+    <div class="backdrop" @click="toggleSidebar"></div>
+    <div class="sidebar">
+      <div class="toggle_sidebar" @click="toggleSidebar">
+        <ph-caret-left :size="24" weight="thin" class="icon" />
+      </div>
+      <div class="logo">
+        <Logo />
+      </div>
+      <div class="blog_nav">
+        <BlogNav />
+      </div>
     </div>
   </aside>
 </template>
@@ -16,17 +21,26 @@
 import { PhCaretLeft } from 'phosphor-vue'
 
 export default {
-  name: 'SideBar',
+  name: 'SidebarM',
   components: {
     PhCaretLeft,
+  },
+  methods: {
+    toggleSidebar() {
+      this.$store.dispatch('toggleSidebar')
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.sidebar_m {
+  height: 100%;
+  width: 100%;
+}
 .sidebar {
   position: fixed;
-  z-index: 1000;
+  z-index: 999;
   height: 100vh;
   width: $side-bar-width;
   color: $blue-dark;
@@ -35,7 +49,7 @@ export default {
   overflow-x: hidden;
   padding: 40px 0 0;
   transition: 0.4s ease-out;
-  background-color: #fff;
+  background-color: #eee;
   .toggle_sidebar {
     position: absolute;
     top: 0;
@@ -47,7 +61,6 @@ export default {
     display: grid;
     place-items: center;
     .icon {
-      display: none;
       color: $blue-dark;
       transition: 0.2s;
       &:hover {
@@ -68,16 +81,33 @@ export default {
   transition-delay: 0.2s;
   opacity: 1;
 }
-
-@media (max-width: 959px) {
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  pointer-events: visible;
+  transition: 0.4s ease-out;
+}
+.show_sidebar_m {
+  .backdrop {
+    opacity: 0;
+    pointer-events: none;
+  }
   .sidebar {
     width: $hide-side-bar-width;
-    z-index: 999;
+    background: none;
     border: none;
     pointer-events: none;
-    background-color: transparent;
     .toggle_sidebar {
+      top: 0;
+      right: -40px;
       pointer-events: visible;
+      transform: translateX(-100%);
       .icon {
         transform: scaleX(-1);
       }
@@ -89,14 +119,6 @@ export default {
     opacity: 0;
     pointer-events: none;
     transform: translateX(-16px);
-  }
-}
-@media (min-width: 960px) {
-  .toggle_sidebar {
-    pointer-events: none;
-    .icon {
-      opacity: 0;
-    }
   }
 }
 </style>

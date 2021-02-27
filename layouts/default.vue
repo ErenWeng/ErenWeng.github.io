@@ -1,12 +1,10 @@
 <template>
   <div>
     <Sidebar />
+    <SidebarM />
     <section class="blog_container">
       <Nuxt />
     </section>
-
-    <!-- for window's width changing -->
-    <div style="display: none">{{ $store.state.isDesktop }}</div>
   </div>
 </template>
 
@@ -14,7 +12,9 @@
 export default {
   mounted() {
     window.onresize = () => {
-      this.$store.commit('GET_DEVICE_WIDTH', window.innerWidth >= 768)
+      if (this.$store.state.toggleSidebar && window.innerWidth < 960) {
+        this.$store.dispatch('toggleSidebar')
+      }
     }
   },
 }
@@ -41,6 +41,11 @@ html {
 }
 
 .blog_container {
+  padding: 40px;
   margin-left: $side-bar-width;
+  transition: 0.4s ease-out;
+  @media (max-width: 960px) {
+    margin-left: 0;
+  }
 }
 </style>
