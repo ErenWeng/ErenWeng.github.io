@@ -35,7 +35,7 @@ ul {
   .nav_item {
     margin-bottom: 8px;
     transition: 0.2s;
-    border-right: 3px solid transparent;
+    border-right: 3px solid $main-bgc;
     .tab {
       display: block;
       line-height: 2rem;

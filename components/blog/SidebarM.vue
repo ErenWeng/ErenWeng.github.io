@@ -49,7 +49,7 @@ export default {
   overflow-x: hidden;
   padding: 40px 0 0;
   transition: 0.4s ease-out;
-  background-color: #eee;
+  background-color: $main-bgc;
   .toggle_sidebar {
     position: absolute;
     top: 0;
