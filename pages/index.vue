@@ -1,11 +1,14 @@
 <template>
   <div>
-    <HomePage />
+    <nuxt-child />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Index',
+  middleware({ route, redirect }) {
+    if (route.path === '/') return redirect('/blog')
+  },
 }
 </script>

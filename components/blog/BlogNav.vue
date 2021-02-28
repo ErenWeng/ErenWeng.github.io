@@ -1,14 +1,14 @@
 <template>
   <nav class="blog_nav">
     <ul class="nav_list">
-      <li :class="['nav_item', { active: $route.path === '/' }]">
-        <nuxt-link to="/" class="tab">Articles</nuxt-link>
+      <li :class="['nav_item', { active: $route.path === '/blog' }]">
+        <nuxt-link to="/blog" class="tab">Articles</nuxt-link>
       </li>
-      <li :class="['nav_item', { active: $route.path === '/about' }]">
-        <nuxt-link to="/about" class="tab">About</nuxt-link>
+      <li :class="['nav_item', { active: $route.path === '/blog/about' }]">
+        <nuxt-link to="/blog/about" class="tab">About</nuxt-link>
       </li>
-      <li :class="['nav_item', { active: $route.path === '/project' }]">
-        <nuxt-link to="/project" class="tab">Project</nuxt-link>
+      <li :class="['nav_item', { active: $route.path === '/blog/project' }]">
+        <nuxt-link to="/blog/project" class="tab">Project</nuxt-link>
       </li>
     </ul>
   </nav>

@@ -3,8 +3,8 @@
     <Sidebar />
     <SidebarM />
     <section class="blog_container">
-      <Nuxt />
-      <Footerbar />
+      <Nuxt class="nuxt_content" />
+      <Footerbar class="nuxt_content" />
     </section>
   </div>
 </template>
@@ -43,14 +43,18 @@ html {
 }
 
 .blog_container {
-  padding: 40px 40px 0;
+  padding-top: 40px;
   min-height: 100vh;
   margin-left: $sidebar-width;
   transition: 0.4s ease-out;
   display: grid;
   grid-template-rows: 1fr $footerbar-height;
+  grid-template-columns: minmax(40px, 8%) 1fr minmax(40px, 8%);
   @media (max-width: 960px) {
     margin-left: 0;
+  }
+  .nuxt_content {
+    grid-column: 2/2;
   }
 }
 </style>
