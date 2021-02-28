@@ -43,12 +43,11 @@ html {
 
 .blog_container {
   padding: 40px 40px 0;
-  background-color: #ccc;
   min-height: 100vh;
   margin-left: $sidebar-width;
   transition: 0.4s ease-out;
   display: grid;
-  grid-template-rows: 1fr 64px;
+  grid-template-rows: 1fr $footerbar-height;
   @media (max-width: 960px) {
     margin-left: 0;
   }
