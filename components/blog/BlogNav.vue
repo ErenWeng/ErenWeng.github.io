@@ -1,14 +1,14 @@
 <template>
   <nav class="blog_nav">
     <ul class="nav_list">
-      <li :class="['nav_item', { active: $route.path === '/blog' }]">
-        <nuxt-link to="/blog" class="tab">Articles</nuxt-link>
-      </li>
-      <li :class="['nav_item', { active: $route.path === '/blog/about' }]">
-        <nuxt-link to="/blog/about" class="tab">About</nuxt-link>
-      </li>
-      <li :class="['nav_item', { active: $route.path === '/blog/project' }]">
-        <nuxt-link to="/blog/project" class="tab">Project</nuxt-link>
+      <li
+        v-for="page in blogPage"
+        :key="page.name"
+        :class="['nav_item', { active: $route.path === `/blog${page.route}` }]"
+      >
+        <nuxt-link :to="`/blog${page.route}`" class="tab">
+          {{ page.name }}
+        </nuxt-link>
       </li>
     </ul>
   </nav>
@@ -17,6 +17,15 @@
 <script>
 export default {
   name: 'BlogNav',
+  data() {
+    return {
+      blogPage: [
+        { name: 'Articles', route: '' },
+        { name: 'About', route: '/about' },
+        { name: 'Project', route: '/project' },
+      ],
+    }
+  },
 }
 </script>
 

@@ -16,7 +16,7 @@
 import { PhCaretLeft } from 'phosphor-vue'
 
 export default {
-  name: 'SideBar',
+  name: 'Sidebar',
   components: {
     PhCaretLeft,
   },
