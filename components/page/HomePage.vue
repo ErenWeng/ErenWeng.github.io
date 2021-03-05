@@ -1,13 +1,17 @@
 <template>
   <div class="home_page">
-    <div v-for="(article, idx) in $store.state.articles" :key="idx" class="">
-      <div class="title">
-        {{ article.title }}
-      </div>
-      <div class="time">
-        {{ article.createdAt }}
-      </div>
-    </div>
+    <ul>
+      <ArticleCard
+        v-for="(article, idx) in $store.state.articles"
+        :key="idx"
+        :title="article.title"
+        :description="article.description"
+        :img="article.img"
+        :tags="article.tags"
+        :slug="article.slug"
+        :created-at="article.createdAt"
+      />
+    </ul>
   </div>
 </template>
 
