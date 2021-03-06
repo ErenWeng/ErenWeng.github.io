@@ -1,6 +1,6 @@
 <template>
   <div class="home_page">
-    <ul>
+    <ul class="article_list">
       <ArticleCard
         v-for="(article, idx) in $store.state.articles"
         :key="idx"
@@ -27,5 +27,10 @@ export default {
 <style lang="scss" scoped>
 .home_page {
   position: relative;
+  .article_list {
+    display: grid;
+    gap: 24px;
+    margin: 8px auto;
+  }
 }
 </style>

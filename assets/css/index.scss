@@ -2,9 +2,21 @@
 $green-dark: #355e41;
 $green-light: #41b883;
 $blue-dark: #34495e;
-$main-bgc: #f4f4f4;
+$main-bgc: #eee;
 
 // size
 $sidebar-width: 240px;
 $hide-sidebar-width: 40px;
 $footerbar-height: 64px;
+
+// global style
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate-m {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

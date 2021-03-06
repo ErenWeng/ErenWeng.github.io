@@ -1,8 +1,8 @@
 <template>
   <li class="article_card">
-    <NuxtLink :to="`/blog/article/${slug}`" class="article_link">
-      <div class="img" v-if="img">
-        <img v-if="img" :src="img" />
+    <nuxt-link :to="`/blog/article/${slug}`" class="article_link">
+      <div v-if="img" class="img_info">
+        <img :src="img" />
       </div>
       <div class="article_info">
         <h2 class="title truncate">
@@ -12,7 +12,7 @@
           {{ description }}
         </p>
         <div class="btm_section">
-          <div class="tag_section">
+          <div class="tags">
             <span v-for="(tag, i) in tags" :key="i" class="card tag">
               {{ tag }}
             </span>
@@ -22,7 +22,7 @@
           </span>
         </div>
       </div>
-    </NuxtLink>
+    </nuxt-link>
   </li>
 </template>
 
@@ -43,8 +43,8 @@ export default {
       default: () => '',
     },
     tags: {
-      type: String,
-      default: () => '',
+      type: [String, Array],
+      default: () => {},
     },
     slug: {
       type: String,
@@ -66,6 +66,95 @@ export default {
 
 <style lang="scss" scoped>
 .article_card {
-  position: relative;
+  border-radius: 8px;
+  background-color: $main-bgc;
+  transition: 0.4s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: #eaeaea;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+.article_link {
+  display: flex;
+  .img_info {
+    margin: 8px;
+    min-width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    @media (max-width: 568px) {
+      display: none;
+    }
+    img {
+      width: 120px;
+      min-height: 100%;
+      object-fit: cover;
+      filter: sepia(30%) brightness(1.1) contrast(0.8);
+    }
+  }
+}
+.article_info {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 32px 54px 1fr;
+  gap: 4px;
+  width: 100%;
+  @media (max-width: 568px) {
+    grid-template-rows: 32px 2.2fr 1fr;
+  }
+  .title {
+    font-size: 24px;
+    color: $green-dark;
+  }
+  .dec {
+    font-size: 14px;
+    line-height: 1.5rem;
+    color: $green-dark;
+    opacity: 0.7;
+    text-indent: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    @media (max-width: 568px) {
+      -webkit-line-clamp: 4;
+    }
+  }
+  .btm_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 568px) {
+      flex-flow: column;
+      justify-content: start;
+      align-items: start;
+    }
+    .tags {
+      display: flex;
+      align-items: center;
+    }
+    .tag {
+      margin: 0 2px;
+      padding: 2px 8px;
+      display: inline-block;
+      font-size: 12px;
+      opacity: 0.5;
+      color: $green-dark;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+    .date {
+      font-size: 12px;
+      color: $green-dark;
+      opacity: 0.7;
+      margin-left: 6px;
+      @media (max-width: 568px) {
+        margin-top: 8px;
+      }
+    }
+  }
 }
 </style>
