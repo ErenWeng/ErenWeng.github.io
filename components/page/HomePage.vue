@@ -2,7 +2,7 @@
   <div class="home_page">
     <ul class="article_list">
       <ArticleCard
-        v-for="(article, idx) in $store.state.articles"
+        v-for="(article, idx) in articles"
         :key="idx"
         :title="article.title"
         :description="article.description"
@@ -18,8 +18,11 @@
 <script>
 export default {
   name: 'HomePage',
-  created() {
-    this.$store.dispatch('getAllArticles')
+  props: {
+    articles: {
+      type: Array,
+      default: () => [],
+    },
   },
 }
 </script>
