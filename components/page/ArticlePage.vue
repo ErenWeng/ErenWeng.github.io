@@ -2,6 +2,7 @@
   <div class="article_page">
     <p>article_page</p>
     <nuxt-content :document="article" />
+    <PrevNext :prev="prev" :next="next" />
   </div>
 </template>
 
@@ -10,8 +11,16 @@ export default {
   name: 'ArticlePage',
   props: {
     article: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
+    },
+    prev: {
+      type: Object,
+      default: () => {},
+    },
+    next: {
+      type: Object,
+      default: () => {},
     },
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ArticlePage :article="article" />
+    <ArticlePage :article="article" :prev="prev" :next="next" />
   </div>
 </template>
 

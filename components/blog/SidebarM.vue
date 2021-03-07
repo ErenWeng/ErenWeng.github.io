@@ -11,7 +11,7 @@
         <Logo />
       </div>
       <div class="blog_nav">
-        <BlogNav />
+        <BlogNav @toggleSidebar="toggleSidebar" />
       </div>
     </div>
   </aside>

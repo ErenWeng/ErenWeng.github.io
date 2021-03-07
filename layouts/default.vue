@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'Default',
   mounted() {
     window.onresize = () => {
       if (this.$store.state.toggleSidebar && window.innerWidth < 960) {

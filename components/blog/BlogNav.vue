@@ -6,7 +6,11 @@
         :key="page.name"
         :class="['nav_item', { active: $route.path === `/blog${page.route}` }]"
       >
-        <nuxt-link :to="`/blog${page.route}`" class="tab">
+        <nuxt-link
+          :to="`/blog${page.route}`"
+          class="tab"
+          @click.native="$emit('toggleSidebar')"
+        >
           {{ page.name }}
         </nuxt-link>
       </li>
