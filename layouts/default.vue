@@ -2,9 +2,14 @@
   <div>
     <Sidebar />
     <SidebarM />
-    <section class="blog_container">
+    <section
+      :class="[
+        'blog_container',
+        { has_table_of_content: $route.path.match('/blog/article/*') },
+      ]"
+    >
       <Nuxt class="nuxt_content" />
-      <Footerbar class="nuxt_content" />
+      <Footerbar class="FooterBar" />
     </section>
   </div>
 </template>
@@ -14,7 +19,7 @@ export default {
   name: 'Default',
   mounted() {
     window.onresize = () => {
-      if (this.$store.state.toggleSidebar && window.innerWidth < 960) {
+      if (this.$store.state.toggleSidebar && window.innerWidth < 1024) {
         this.$store.dispatch('toggleSidebar')
       }
     }
@@ -49,13 +54,26 @@ html {
   margin-left: $sidebar-width;
   transition: 0.4s ease-out;
   display: grid;
+  justify-content: center;
   grid-template-rows: 1fr $footerbar-height;
-  grid-template-columns: minmax(40px, 8%) 1fr minmax(40px, 8%);
-  @media (max-width: 960px) {
+  grid-template-columns: minmax(40px, 8%) minmax(min-content, 720px) 200px minmax(
+      40px,
+      8%
+    );
+  gap: 24px;
+  @media (max-width: 1024px) {
     margin-left: 0;
   }
-  .nuxt_content {
-    grid-column: 2/2;
+  & > * {
+    grid-column: 2/4;
+  }
+  &.has_table_of_content {
+    .FooterBar {
+      grid-column: 2/3;
+      @media (max-width: 768px) {
+        grid-column: 2/4;
+      }
+    }
   }
 }
 </style>

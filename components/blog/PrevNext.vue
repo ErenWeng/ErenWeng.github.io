@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .prev_next {
-  margin: 24px 16px;
+  margin: 24px 0;
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(2, minmax(160px, 1fr));

@@ -68,8 +68,7 @@ export default {
   transition-delay: 0.2s;
   opacity: 1;
 }
-
-@media (max-width: 959px) {
+@media (max-width: 1024px) {
   .sidebar {
     width: $hide-sidebar-width;
     z-index: 999;
@@ -91,7 +90,7 @@ export default {
     transform: translateX(-16px);
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .toggle_sidebar {
     pointer-events: none;
     .icon {
