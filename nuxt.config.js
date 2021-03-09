@@ -13,7 +13,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   css: ['@/assets/css/index.scss', '@/assets/css/reset.css'],
-  plugins: [],
+  plugins: [{ src: '@/plugins/scrollactive', ssr: false }],
   components: {
     dirs: ['~/components', '~/components/page', '~/components/blog'],
   },

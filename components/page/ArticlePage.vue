@@ -13,10 +13,7 @@
       <PrevNext :prev="prev" :next="next" />
     </section>
     <aside class="table_of_content">
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
+      <TableOfContent :article="article" />
     </aside>
   </div>
 </template>
@@ -62,7 +59,7 @@ export default {
 .table_of_content {
   position: sticky;
   height: 0;
-  top: 40px;
+  top: 56px;
   @media (max-width: 768px) {
     display: none;
   }
