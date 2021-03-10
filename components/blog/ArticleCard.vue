@@ -71,7 +71,7 @@ export default {
   transition: 0.4s;
   border: 1px solid rgba(0, 0, 0, 0.1);
   &:hover {
-    background-color: #eaeaea;
+    background-color: $hover-bgc;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
 }

@@ -1,15 +1,17 @@
 <template>
   <div class="article_page">
     <section class="article_container">
-      <img
-        v-if="article.img"
-        :src="article.img"
-        :alt="article.alt"
-        class="article_img"
-      />
-      <article class="markdown_content">
-        <nuxt-content :document="article" />
-      </article>
+      <div class="article_content">
+        <img
+          v-if="article.img"
+          :src="article.img"
+          :alt="article.alt"
+          class="article_img"
+        />
+        <article class="markdown_content">
+          <nuxt-content :document="article" />
+        </article>
+      </div>
       <PrevNext :prev="prev" :next="next" />
     </section>
     <aside class="table_of_content">
@@ -55,6 +57,12 @@ export default {
     object-fit: cover;
     filter: sepia(40%) brightness(1.1) contrast(0.8);
   }
+}
+.article_content {
+  background-color: $hover-bgc;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+  padding: 24px;
 }
 .table_of_content {
   position: sticky;
