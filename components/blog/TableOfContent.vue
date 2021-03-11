@@ -59,16 +59,18 @@ export default {
     }
     function actualScrollHandler() {
       const activeTab = document.querySelector('.scroll_active')
-      const active = activeTab.href.split('#')[1]
-      const sections = [
-        ...document.querySelectorAll(
-          '.nuxt-content h2[id], .nuxt-content h3[id]'
-        ),
-      ]
-      const result = sections.filter((section) => {
-        return section.id === active
-      })
-      result[0].classList.add('active_title')
+      if (activeTab) {
+        const active = activeTab.href.split('#')[1]
+        const sections = [
+          ...document.querySelectorAll(
+            '.nuxt-content h2[id], .nuxt-content h3[id]'
+          ),
+        ]
+        const result = sections.filter((section) => {
+          return section.id === active
+        })
+        result[0].classList.add('active_title')
+      }
     }
   },
 }

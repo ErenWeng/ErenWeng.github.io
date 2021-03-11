@@ -2,7 +2,7 @@
   <div class="home_page">
     <ul class="article_list">
       <ArticleCard
-        v-for="(article, idx) in articles"
+        v-for="(article, idx) in sliceArray[activePage]"
         :key="idx"
         :title="article.title"
         :description="article.description"
@@ -12,6 +12,13 @@
         :created-at="article.createdAt"
       />
     </ul>
+    <button
+      v-for="pageNo in sliceArray.length"
+      :key="pageNo"
+      @click="activePage = pageNo - 1"
+    >
+      {{ pageNo }}
+    </button>
   </div>
 </template>
 
@@ -23,6 +30,20 @@ export default {
       type: Array,
       default: () => [],
     },
+  },
+  data() {
+    return {
+      sliceArray: [],
+      activePage: 0,
+      articlesCount: 3,
+    }
+  },
+  created() {
+    if (process.client) {
+      for (let i = 0; i < this.articles.length; i = i + this.articlesCount) {
+        this.sliceArray.push(this.articles.slice(i, i + this.articlesCount))
+      }
+    }
   },
 }
 </script>
