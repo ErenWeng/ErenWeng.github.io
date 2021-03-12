@@ -12,13 +12,16 @@
         :created-at="article.createdAt"
       />
     </ul>
-    <button
-      v-for="pageNo in sliceArray.length"
-      :key="pageNo"
-      @click="activePage = pageNo - 1"
-    >
-      {{ pageNo }}
-    </button>
+    <div class="pagination_bar">
+      <button
+        v-for="pageNo in sliceArray.length"
+        :key="pageNo"
+        class="page_button"
+        @click="activePage = pageNo - 1"
+      >
+        {{ pageNo }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -35,7 +38,7 @@ export default {
     return {
       sliceArray: [],
       activePage: 0,
-      articlesCount: 3,
+      articlesCount: 4,
     }
   },
   created() {
@@ -55,6 +58,24 @@ export default {
     display: grid;
     gap: 24px;
     margin: 8px auto;
+  }
+  .pagination_bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+    .page_button {
+      height: 32px;
+      width: 32px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transition: 0.4s;
+      cursor: pointer;
+      &:hover {
+        background-color: $hover-bgc;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
   }
 }
 </style>
