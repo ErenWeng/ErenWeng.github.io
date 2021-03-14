@@ -11,6 +11,7 @@
       <Nuxt class="nuxt_content" />
       <Footerbar class="FooterBar" />
     </section>
+    <ScrollToTop />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   background-color: $main-bgc;
+  overflow-y: scroll;
 }
 
 *,

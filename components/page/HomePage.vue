@@ -1,6 +1,6 @@
 <template>
   <div class="home_page">
-    <ul class="article_list">
+    <transition-group v-show="showContent" class="article_list" tag="ul">
       <ArticleCard
         v-for="(article, idx) in sliceArray[activePage]"
         :key="idx"
@@ -11,13 +11,13 @@
         :slug="article.slug"
         :created-at="article.createdAt"
       />
-    </ul>
+    </transition-group>
     <div class="pagination_bar">
       <button
         v-for="pageNo in sliceArray.length"
         :key="pageNo"
-        class="page_button"
-        @click=";[(activePage = pageNo - 1), scrollToTop()]"
+        :class="['page_button', { active: activePage === pageNo - 1 }]"
+        @click="handlePaginationBtn(pageNo)"
       >
         {{ pageNo }}
       </button>
@@ -38,14 +38,13 @@ export default {
     return {
       sliceArray: [],
       activePage: 0,
-      articlesCount: 5,
+      articlesCount: 4,
+      showContent: true,
     }
   },
   created() {
     if (process.client) {
-      for (let i = 0; i < this.articles.length; i = i + this.articlesCount) {
-        this.sliceArray.push(this.articles.slice(i, i + this.articlesCount))
-      }
+      this.handleSliceArray()
     }
   },
   methods: {
@@ -57,6 +56,21 @@ export default {
         window.scroll(0, window.pageYOffset - 40)
       }, 10)
     },
+    handlePaginationBtn(pageNo) {
+      if (this.activePage !== pageNo - 1) {
+        this.activePage = pageNo - 1
+        this.scrollToTop()
+        this.showContent = false
+        setTimeout(() => {
+          this.showContent = true
+        }, 300)
+      }
+    },
+    handleSliceArray() {
+      for (let i = 0; i < this.articles.length; i = i + this.articlesCount) {
+        this.sliceArray.push(this.articles.slice(i, i + this.articlesCount))
+      }
+    },
   },
 }
 </script>
@@ -65,15 +79,14 @@ export default {
 .home_page {
   position: relative;
   height: 100%;
-  padding-bottom: 56px;
   .article_list {
     display: grid;
-    gap: 24px;
-    margin: 8px auto;
+    gap: 12px;
+    animation: show_content 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
   }
   .pagination_bar {
     position: absolute;
-    bottom: 8px;
+    bottom: -36px;
     right: 0;
     left: 0;
     margin: auto;
@@ -86,15 +99,34 @@ export default {
       width: 32px;
       border-radius: 4px;
       border: 1px solid rgba(0, 0, 0, 0.1);
+      color: $green-dark;
       background-color: $main-bgc;
       transition: 0.4s;
+      font-size: 16px;
       cursor: pointer;
       outline: none;
       &:hover {
         background-color: $hover-bgc;
         box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
       }
+      &.active {
+        color: $main-bgc;
+        border: 1px solid $green-light;
+        background-color: $green-light;
+      }
     }
+  }
+}
+@keyframes show_content {
+  0%,
+  20% {
+    transform: translateX(5vw);
+    opacity: 0;
+  }
+  80%,
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 </style>

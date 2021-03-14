@@ -1,12 +1,17 @@
 <template>
-  <button @click="scrollTop" v-show="visible" class="bottom-right">
-    <p>top</p>
+  <button @click="scrollTop" v-show="visible" class="scroll_to_top">
+    <ph-caret-double-up :size="24" weight="thin" />
   </button>
 </template>
 
 <script>
+import { PhCaretDoubleUp } from 'phosphor-vue'
+
 export default {
   name: 'ScrollToTop',
+  components: {
+    PhCaretDoubleUp,
+  },
   data() {
     return {
       visible: false,
@@ -19,7 +24,7 @@ export default {
           clearInterval(this.intervalId)
         }
         window.scroll(0, window.pageYOffset - 40)
-      }, 10)
+      }, 2)
     },
     scrollListener(e) {
       this.visible = window.scrollY > 40
@@ -34,11 +39,23 @@ export default {
 }
 </script>
 
-<style scoped>
-.bottom-right {
+<style lang="scss" scoped>
+.scroll_to_top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
   cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: $green-dark;
+  background-color: $main-bgc;
+  transition: 0.4s;
+  outline: none;
+  &:hover {
+    background-color: $hover-bgc;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 </style>
