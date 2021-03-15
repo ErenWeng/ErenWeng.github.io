@@ -3,7 +3,7 @@
     <transition-group v-show="showContent" class="article_list" tag="ul">
       <ArticleCard
         v-for="(article, idx) in sliceArray[activePage]"
-        :key="idx"
+        :key="`key-${idx}`"
         :title="article.title"
         :description="article.description"
         :img="article.img"
