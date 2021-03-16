@@ -1,10 +1,17 @@
 <template>
-  <div class="project_page">project_page</div>
+  <div class="project_page">
+    <div v-if="projects.length <= 0">still working . . .</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ProjectPage',
+  data() {
+    return {
+      projects: [],
+    }
+  },
 }
 </script>
 

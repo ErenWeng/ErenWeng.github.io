@@ -111,22 +111,13 @@ export default {
 
 <style lang="scss" scoped>
 .about_page {
-  min-height: 100%;
-  max-width: 80%;
-  padding: 8px;
-  margin: auto;
   position: relative;
-  .myself {
-    padding: 8px;
-  }
 }
 .card_header {
   position: relative;
   display: grid;
   grid-template-rows: 140px 30px;
   justify-items: center;
-  background-color: #fff;
-  color: #303133;
   transition: 0.3s;
   border-radius: 8px;
   overflow: hidden;
@@ -145,7 +136,6 @@ export default {
   }
   &:hover,
   &:focus {
-    box-shadow: 0 2px 12px 2px rgba($color: $green-light, $alpha: 0.25);
     &::before {
       opacity: 0.8;
     }

@@ -40,7 +40,7 @@ export default {
 ul {
   margin-left: 12px;
   li {
-    margin-left: 12px;
+    padding-left: 12px;
   }
 }
 .nav_list {
@@ -63,6 +63,11 @@ ul {
     }
     &.active {
       border-right: 3px solid $green-light;
+      background: linear-gradient(
+        90deg,
+        $main-bgc,
+        rgba($green-light, $alpha: 0.05)
+      );
       .tab {
         color: $green-light;
       }

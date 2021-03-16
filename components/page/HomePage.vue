@@ -58,12 +58,12 @@ export default {
     },
     handlePaginationBtn(pageNo) {
       if (this.activePage !== pageNo - 1) {
-        this.activePage = pageNo - 1
-        this.scrollToTop()
-        this.showContent = false
         setTimeout(() => {
           this.showContent = true
         }, 300)
+        this.activePage = pageNo - 1
+        this.scrollToTop()
+        this.showContent = false
       }
     },
     handleSliceArray() {
