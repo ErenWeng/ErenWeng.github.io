@@ -1,5 +1,5 @@
 <template>
-  <button @click="scrollTop" v-show="visible" class="scroll_to_top">
+  <button v-show="visible" class="scroll_to_top" @click="scrollTop">
     <ph-caret-double-up :size="24" weight="thin" />
   </button>
 </template>
@@ -17,6 +17,12 @@ export default {
       visible: false,
     }
   },
+  mounted() {
+    window.addEventListener('scroll', this.scrollListener)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollListener)
+  },
   methods: {
     scrollTop() {
       this.intervalId = setInterval(() => {
@@ -29,12 +35,6 @@ export default {
     scrollListener(e) {
       this.visible = window.scrollY > 40
     },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.scrollListener)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.scrollListener)
   },
 }
 </script>
