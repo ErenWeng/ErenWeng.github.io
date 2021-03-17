@@ -1,28 +1,34 @@
 <template>
   <nav class="blog_nav">
     <ul class="nav_list">
-      <!-- active: $route.path === `/blog${page.route}`, -->
       <li v-for="page of blogPage" :key="page.name" class="nav_item">
         <nuxt-link
-          :to="page.route === '/tag' ? '' : `/blog${page.route}`"
+          v-if="page.route !== '/tag'"
+          :to="`/blog${page.route}`"
+          :class="[
+            'tab',
+            {
+              active: $route.path === `/blog${page.route}`,
+            },
+          ]"
+          @click.native="$store.dispatch('toggleSidebar')"
+        >
+          {{ page.name }}
+        </nuxt-link>
+        <div
+          v-else
           :class="[
             'tab',
             {
               active:
-                $route.path === `/blog${page.route}` ||
-                ($route.path.match(`/blog${page.route}`) &&
-                  page.route === '/tag' &&
-                  !$store.state.toggleTagList),
+                $route.path.match(`/blog${page.route}`) &&
+                !$store.state.toggleTagList,
             },
           ]"
-          @click.native="
-            {
-              page.route === '/tag' ? $store.dispatch('toggleTagList') : false
-            }
-          "
+          @click="$store.dispatch('toggleTagList')"
         >
           {{ page.name }}
-        </nuxt-link>
+        </div>
         <transition name="showTag">
           <ul
             v-show="$store.state.toggleTagList"
@@ -31,14 +37,17 @@
           >
             <li v-for="tag of $store.state.tagsCount" :key="tag.name">
               <nuxt-link
-                :to="`/blog${page.route}/${tag.slug}`"
+                :to="{
+                  path: `/blog${page.route}/${tag.slug}`,
+                  query: { tag: tag.name },
+                }"
                 :class="[
                   'sub_tab',
                   { active: $route.path === `/blog${page.route}/${tag.slug}` },
                 ]"
-                @click.native="$emit('toggleSidebar')"
+                @click.native="$store.dispatch('toggleSidebar')"
               >
-                {{ tag.name }}
+                {{ tag.name }} {{ tag.count }}
               </nuxt-link>
             </li>
           </ul>
@@ -104,7 +113,7 @@ export default {
       display: block;
       line-height: 1.5rem;
       color: $green-dark;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 300;
       cursor: pointer;
       margin-top: 8px;

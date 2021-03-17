@@ -1,5 +1,8 @@
 <template>
   <div class="home_page">
+    <div v-show="$route.query.tag" class="tag_prompt">
+      Tagged - {{ $route.query.tag }}
+    </div>
     <transition-group v-show="showContent" class="article_list" tag="ul">
       <ArticleCard
         v-for="(article, idx) in sliceArray[activePage]"
@@ -38,7 +41,7 @@ export default {
     return {
       sliceArray: [],
       activePage: 0,
-      articlesCount: 4,
+      articlesCount: 8,
       showContent: true,
     }
   },
@@ -79,6 +82,12 @@ export default {
 .home_page {
   position: relative;
   height: 100%;
+  .tag_prompt {
+    height: 32px;
+    line-height: 32px;
+    color: $green-dark;
+    font-weight: 300;
+  }
   .article_list {
     display: grid;
     gap: 12px;
@@ -86,14 +95,13 @@ export default {
   }
   .pagination_bar {
     position: absolute;
-    bottom: -36px;
+    bottom: -48px;
     right: 0;
     left: 0;
     margin: auto;
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 40px;
     .page_button {
       height: 32px;
       width: 32px;
