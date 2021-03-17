@@ -18,6 +18,11 @@
 <script>
 export default {
   name: 'Default',
+  created() {
+    if (process.client) {
+      this.$store.dispatch('fetchTagsCount')
+    }
+  },
   mounted() {
     window.onresize = () => {
       if (this.$store.state.toggleSidebar && window.innerWidth < 1024) {
