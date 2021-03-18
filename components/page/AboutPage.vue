@@ -48,13 +48,14 @@
 </template>
 
 <script>
-import { PhGithubLogo, PhLinkedinLogo } from 'phosphor-vue'
+import { PhGithubLogo, PhLinkedinLogo, PhEnvelope } from 'phosphor-vue'
 
 export default {
   name: 'AboutPage',
   components: {
     PhGithubLogo,
     PhLinkedinLogo,
+    PhEnvelope,
   },
   data() {
     return {
@@ -70,6 +71,10 @@ export default {
         {
           icon: 'gitlab',
           link: 'https://github.com/ErenWeng',
+        },
+        {
+          icon: 'email',
+          link: 'mailto:f245986@gmail.com',
         },
       ],
       workTools: [
@@ -103,6 +108,8 @@ export default {
         return 'ph-linkedin-logo'
       } else if (contactType === 'gitlab') {
         return 'Gitlab'
+      } else if (contactType === 'email') {
+        return 'ph-envelope'
       }
     },
   },

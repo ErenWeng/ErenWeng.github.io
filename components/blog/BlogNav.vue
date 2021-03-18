@@ -11,7 +11,7 @@
               active: $route.path === `/blog${page.route}`,
             },
           ]"
-          @click.native="$store.dispatch('toggleSidebar')"
+          @click.native="$emit('toggleSidebar')"
         >
           {{ page.name }}
         </nuxt-link>
@@ -45,7 +45,7 @@
                   'sub_tab',
                   { active: $route.path === `/blog${page.route}/${tag.slug}` },
                 ]"
-                @click.native="$store.dispatch('toggleSidebar')"
+                @click.native="$emit('toggleSidebar')"
               >
                 {{ tag.name }} {{ tag.count }}
               </nuxt-link>
