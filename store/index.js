@@ -24,7 +24,7 @@ export const actions = {
     commit('TOGGLE_TAG_LIST')
   },
   async fetchTagsCount({ commit }) {
-    const baseURL = `http://localhost:3000/_content/`
+    const baseURL = `/_content/`
     const filter = `articles?only=tags`
     const tagAPI = await this.$axios.$get(`${baseURL}${filter}`)
 

@@ -28,12 +28,19 @@
           @click="$store.dispatch('toggleTagList')"
         >
           {{ page.name }}
+          <ph-caret-down
+            :size="14"
+            weight="thin"
+            :class="[
+              'toggle_tag_list_icon',
+              { toggle: $store.state.toggleTagList },
+            ]"
+          />
         </div>
         <transition name="showTag">
           <ul
-            v-show="$store.state.toggleTagList"
-            v-if="page.route === '/tag'"
-            class="tab_list"
+            v-if="page.route === '/tag' && $store.state.toggleTagList"
+            class="tag_list"
           >
             <li v-for="tag of $store.state.tagsCount" :key="tag.name">
               <nuxt-link
@@ -58,8 +65,13 @@
 </template>
 
 <script>
+import { PhCaretDown } from 'phosphor-vue'
+
 export default {
   name: 'BlogNav',
+  components: {
+    PhCaretDown,
+  },
   data() {
     return {
       tagsCount: [],
@@ -105,6 +117,15 @@ export default {
           rgba($green-light, $alpha: 0.05)
         );
         color: $green-light;
+      }
+      .toggle_tag_list_icon {
+        vertical-align: middle;
+        transition: 0.3s;
+        margin: 0 0 2px 4px;
+        &.toggle {
+          transition: 0.3s;
+          transform: scaleY(-1);
+        }
       }
     }
     .sub_tab {

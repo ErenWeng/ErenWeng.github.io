@@ -90,12 +90,12 @@ export default {
   }
   .article_list {
     display: grid;
-    gap: 12px;
+    gap: 16px;
     animation: show_content 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
   }
   .pagination_bar {
     position: absolute;
-    bottom: -48px;
+    bottom: -56px;
     right: 0;
     left: 0;
     margin: auto;

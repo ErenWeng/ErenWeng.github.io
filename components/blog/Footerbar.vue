@@ -16,7 +16,7 @@ export default {
   width: 100%;
   display: grid;
   place-items: center;
-  padding-top: 24px;
+  padding-top: 36px;
   .author {
     color: $green-dark;
     font-weight: 300;
