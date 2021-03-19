@@ -21,15 +21,9 @@
             :alt="item.icon"
             class="contact_icon"
           >
-            <component
-              :is="getIconComponentName(item.icon)"
-              size="32"
-              weight="light"
-            />
+            <component :is="item.icon" size="32" weight="light" />
           </a>
         </li>
-        <!-- for component:is -->
-        <Gitlab style="display: none" />
       </ul>
     </section>
     <section class="skill">
@@ -61,19 +55,15 @@ export default {
     return {
       contact: [
         {
-          icon: 'github',
+          icon: 'PhGithubLogo',
           link: 'https://github.com/ErenWeng',
         },
         {
-          icon: 'linkedin',
+          icon: 'PhLinkedinLogo',
           link: 'https://github.com/ErenWeng',
         },
         {
-          icon: 'gitlab',
-          link: 'https://github.com/ErenWeng',
-        },
-        {
-          icon: 'email',
+          icon: 'PhEnvelope',
           link: 'mailto:f245986@gmail.com',
         },
       ],
@@ -99,19 +89,6 @@ export default {
         bio: 'I am a passionate Front-End Developer, I love Vue.js ♥ ',
       },
     }
-  },
-  methods: {
-    getIconComponentName(contactType) {
-      if (contactType === 'github') {
-        return 'ph-github-logo'
-      } else if (contactType === 'linkedin') {
-        return 'ph-linkedin-logo'
-      } else if (contactType === 'gitlab') {
-        return 'Gitlab'
-      } else if (contactType === 'email') {
-        return 'ph-envelope'
-      }
-    },
   },
 }
 </script>
