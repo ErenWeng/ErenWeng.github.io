@@ -13,7 +13,7 @@
         </p>
         <div class="btm_section">
           <div class="tags">
-            <span v-for="(tag, i) in tags" :key="i" class="card tag">
+            <span v-for="(tag, i) in tags" :key="i" class="tag">
               {{ tag }}
             </span>
           </div>
