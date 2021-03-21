@@ -1,15 +1,10 @@
 <template>
   <transition name="page">
-    <div class="page_loader" v-if="$store.state.isLoading">
-      <!-- <div v-if="isMobile" class="loading_m">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-      </div> -->
-      <div class="loading">
-        <div class="line"></div>
-        <div class="count"></div>
+    <div v-if="$store.state.isLoading" class="page_loader">
+      <div class="loading_txt">
+        <span v-for="txt of loadingString" :key="txt" class="txt">
+          {{ txt }}
+        </span>
       </div>
     </div>
   </transition>
@@ -18,26 +13,16 @@
 <script>
 export default {
   name: 'PageLoader',
+  data() {
+    return {
+      loadingString: 'loading',
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-$colors: #8cc271, #69beeb, #f5aa39, #e9643b;
-// -----------------------------------------------------
-.loading_m {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #333;
-  z-index: 1000;
-}
-
-.loading {
+.page_loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -46,57 +31,47 @@ $colors: #8cc271, #69beeb, #f5aa39, #e9643b;
   background-color: #333;
   z-index: 999;
 }
-
-// -----------------------------------------------------
-.line {
-  height: 100%;
-  width: var(--sidebar_width);
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
-  animation: bottom 1s ease;
-}
-
-// -----------------------------------------------------
-.cube {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  // @for $i from 1 through length($colors) {
-  //   &:nth-child(#{$i}) {
-  //     background-color: nth($colors, $i);
-  //   }
-  // }
-  &:first-child {
-    animation: left 1s infinite;
-  }
-  &:last-child {
-    animation: right 1s infinite 0.5s;
-  }
-}
-// -----------------------------------------------------
-@keyframes left {
-  40% {
-    transform: translateX(-60px);
-  }
-  50% {
-    transform: translateX(0);
-  }
-}
-@keyframes right {
-  40% {
-    transform: translateX(60px);
-  }
-  50% {
-    transform: translateX(0);
+.loading_txt {
+  display: grid;
+  padding: 20%;
+  height: 100vh;
+  grid-auto-flow: column;
+  place-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: transparent;
+  .txt {
+    text-shadow: 0 0 2px rgba(204, 208, 212, 0.9),
+      0 15px 25px rgba(0, 0, 0, 0.3), 0 -2px 3px rgba(0, 0, 0, 0.1),
+      0 -5px 10px rgba(255, 255, 255, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3),
+      0 3px 4px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.45);
+    animation: loading 0.85s ease-in-out infinite alternate;
+    &:nth-of-type(2) {
+      animation-delay: 0.15s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 0.3s;
+    }
+    &:nth-of-type(4) {
+      animation-delay: 0.45s;
+    }
+    &:nth-of-type(5) {
+      animation-delay: 0.6s;
+    }
+    &:nth-of-type(6) {
+      animation-delay: 0.75s;
+    }
+    &:nth-of-type(7) {
+      animation-delay: 0.9s;
+    }
   }
 }
-@keyframes bottom {
-  0%,
-  20% {
-    transform: scaleY(0);
-  }
-  80%,
-  100% {
-    transform: scaleY(-100%);
+@keyframes loading {
+  to {
+    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02),
+      0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(255, 255, 255, 0);
   }
 }
 .page-enter-active,

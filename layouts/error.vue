@@ -62,7 +62,7 @@ export default {
     font-weight: 400;
     padding: 8px 0;
     margin-bottom: 32px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid var(--grey-light);
   }
   .error_txt {
     text-align: left;

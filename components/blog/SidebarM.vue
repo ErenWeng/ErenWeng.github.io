@@ -43,7 +43,7 @@ export default {
   height: 100vh;
   width: $sidebar-width;
   color: var(--blue-dark);
-  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  border-right: 1px solid var(--grey-light);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 40px 0 0;

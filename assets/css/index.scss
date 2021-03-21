@@ -1,5 +1,4 @@
 // scrollbar style
-
 ::-webkit-scrollbar {
   width: 12px;
   background-color: var(--main-bgc);
@@ -15,7 +14,7 @@
   border: 3px solid var(--main-bgc);
 }
 
-// color
+// nuxt-color-mode
 :root {
   --green-dark: #355e41;
   --green-light: #41b883;
@@ -23,10 +22,9 @@
   --main-bgc: #f5f2f0;
   --hover-bgc: #fffcfa;
   --grey-dark: rgba(0, 0, 0, 0.25);
-  --grey-light: rgba(0, 0, 0, 0.1);
+  --grey-light: rgba(0, 0, 0, 0.07);
 }
-
-[theme='dark'] {
+[nuxt-color-mode='dark'] {
   --green-dark: #41b883;
   --green-light: #a4dfc4;
   --blue-dark: #536cbe;
@@ -34,6 +32,8 @@
   --hover-bgc: #333;
   --grey-dark: rgba(255, 255, 255, 0.25);
   --grey-light: rgba(255, 255, 255, 0.1);
+
+  color: #f5f2f0;
 }
 
 // size
@@ -47,14 +47,12 @@ $footerbar-height: 96px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .truncate-m {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 // markdown content
-
 .markdown_content {
   .nuxt-content {
     font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;

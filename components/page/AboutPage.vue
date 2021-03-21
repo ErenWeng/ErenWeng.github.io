@@ -1,5 +1,5 @@
 <template>
-  <div class="about_page">
+  <div :class="['about_page', { animation: !$store.state.isLoading }]">
     <section class="myself">
       <div class="card_header">
         <div class="img">
@@ -96,6 +96,9 @@ export default {
 <style lang="scss" scoped>
 .about_page {
   position: relative;
+  &.animation {
+    animation: appear 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
+  }
 }
 .card_header {
   position: relative;
@@ -210,6 +213,16 @@ export default {
       color: var(--green-dark);
       opacity: 0.6;
     }
+  }
+}
+@keyframes appear {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  80%,
+  100% {
+    opacity: 1;
   }
 }
 </style>

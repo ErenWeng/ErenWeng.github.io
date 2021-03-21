@@ -1,30 +1,36 @@
 <template>
   <div class="color_switcher">
-    <ph-sun
-      v-if="$store.state.colorTheme === 'light'"
-      :size="24"
-      weight="thin"
-      class="switch_icon"
-      @click="colorSwitch('dark')"
-    />
-    <ph-moon
-      v-else
-      :size="24"
-      weight="thin"
-      class="switch_icon"
-      @click="colorSwitch('light')"
-    />
+    <transition name="switch" mode="out-in">
+      <ph-sun
+        v-if="$store.state.colorTheme === 'light'"
+        :size="24"
+        weight="thin"
+        class="switch_icon"
+        @click="colorSwitch('dark')"
+      />
+      <ph-moon-stars
+        v-else
+        :size="24"
+        weight="thin"
+        class="switch_icon"
+        @click="colorSwitch('light')"
+      />
+    </transition>
   </div>
 </template>
 
 <script>
-import { PhSun, PhMoon } from 'phosphor-vue'
+import { PhSun, PhMoonStars } from 'phosphor-vue'
 
 export default {
   name: 'ColorSwitcher',
   components: {
     PhSun,
-    PhMoon,
+    PhMoonStars,
+  },
+  mounted() {
+    const theme = localStorage.getItem('nuxt-color-mode')
+    this.colorSwitch(theme)
   },
   methods: {
     colorSwitch(type) {
@@ -45,12 +51,21 @@ export default {
   display: grid;
   place-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 .switch_icon {
   color: var(--green-dark);
-  transition: 0.3s;
+  transition: 0.2s;
   &:hover {
     color: var(--green-light);
   }
+}
+.switch-enter-active,
+.switch-leave-active {
+  transition: opacity 0.1s;
+}
+.switch-enter,
+.switch-leave-to {
+  opacity: 0;
 }
 </style>

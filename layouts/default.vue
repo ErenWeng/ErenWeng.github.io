@@ -48,6 +48,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   background-color: var(--main-bgc);
+  transition: 0.4s;
   overflow-y: scroll;
 }
 
@@ -56,7 +57,6 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-  transition: 0.4s;
 }
 
 .blog_container {

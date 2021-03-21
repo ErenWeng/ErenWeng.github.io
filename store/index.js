@@ -40,8 +40,8 @@ export const actions = {
   setColorTheme({ commit }, type) {
     const htmlElement = document.documentElement
     commit('SET_COLOR_THEME', type)
-    localStorage.setItem('theme', type)
-    htmlElement.setAttribute('theme', type)
+    localStorage.setItem('nuxt-color-mode', type)
+    htmlElement.setAttribute('nuxt-color-mode', type)
   },
   async fetchTagsCount({ commit }) {
     const baseURL = `/_content/`
