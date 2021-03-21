@@ -67,12 +67,12 @@ export default {
 <style lang="scss" scoped>
 .article_card {
   border-radius: 8px;
-  background-color: $main-bgc;
+  background-color: var(--main-bgc);
   transition: 0.4s;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--grey-light);
   &:hover {
-    background-color: $hover-bgc;
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--hover-bgc);
+    box-shadow: 4px 4px 8px 0 var(--grey-light);
   }
 }
 .article_link {
@@ -107,12 +107,12 @@ export default {
   }
   .title {
     font-size: 24px;
-    color: $green-dark;
+    color: var(--green-dark);
   }
   .dec {
     font-size: 14px;
     line-height: 1.5rem;
-    color: $green-dark;
+    color: var(--green-dark);
     opacity: 0.7;
     text-indent: 2rem;
     display: -webkit-box;
@@ -142,13 +142,13 @@ export default {
       display: inline-block;
       font-size: 12px;
       opacity: 0.5;
-      color: $green-dark;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--green-dark);
+      border: 1px solid var(--grey-light);
       border-radius: 4px;
     }
     .date {
       font-size: 12px;
-      color: $green-dark;
+      color: var(--green-dark);
       opacity: 0.7;
       margin-left: 6px;
       @media (max-width: 568px) {

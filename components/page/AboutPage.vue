@@ -115,7 +115,11 @@ export default {
     bottom: 0;
     margin: auto;
     filter: blur(40px);
-    background: linear-gradient(135deg, $green-light 35%, $green-dark);
+    background: linear-gradient(
+      135deg,
+      var(--green-light) 35%,
+      var(--green-dark)
+    );
     transition: 0.6s;
   }
   &:hover,
@@ -148,11 +152,11 @@ export default {
 .bio {
   text-align: center;
   margin: 16px 0;
-  color: $green-dark;
+  color: var(--green-dark);
 }
 .hr {
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--grey-light);
   margin: 10px;
 }
 .contact {
@@ -166,20 +170,20 @@ export default {
     .contact_icon {
       height: 32px;
       width: 32px;
-      color: $green-dark;
+      color: var(--green-dark);
       transition: 0.3s;
       ::v-deep {
         .st12 {
-          fill: $green-dark;
+          fill: var(--green-dark);
           transform: scale(1.4) translate(-88px, -72px);
           transition: 0.3s;
         }
       }
       &:hover {
-        color: $green-light;
+        color: var(--green-light);
         ::v-deep {
           .st12 {
-            fill: $green-light;
+            fill: var(--green-light);
           }
         }
       }
@@ -194,7 +198,7 @@ export default {
     margin-bottom: 8px;
     padding-bottom: 8px;
     font-size: 24px;
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   }
@@ -203,7 +207,7 @@ export default {
       list-style-type: '- ';
       font-size: 14px;
       line-height: 2rem;
-      color: $green-dark;
+      color: var(--green-dark);
       opacity: 0.6;
     }
   }

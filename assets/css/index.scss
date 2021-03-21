@@ -1,9 +1,40 @@
+// scrollbar style
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--main-bgc);
+}
+// track
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+// handler
+::-webkit-scrollbar-thumb {
+  background: var(--grey-dark);
+  border-radius: 10px;
+  border: 3px solid var(--main-bgc);
+}
+
 // color
-$green-dark: #355e41;
-$green-light: #41b883;
-$blue-dark: #34495e;
-$main-bgc: #f5f2f0;
-$hover-bgc: #fffcfa;
+:root {
+  --green-dark: #355e41;
+  --green-light: #41b883;
+  --blue-dark: #34495e;
+  --main-bgc: #f5f2f0;
+  --hover-bgc: #fffcfa;
+  --grey-dark: rgba(0, 0, 0, 0.25);
+  --grey-light: rgba(0, 0, 0, 0.1);
+}
+
+[theme='dark'] {
+  --green-dark: #41b883;
+  --green-light: #a4dfc4;
+  --blue-dark: #536cbe;
+  --main-bgc: #222;
+  --hover-bgc: #333;
+  --grey-dark: rgba(255, 255, 255, 0.25);
+  --grey-light: rgba(255, 255, 255, 0.1);
+}
 
 // size
 $sidebar-width: 240px;
@@ -30,7 +61,7 @@ $footerbar-height: 96px;
     .active_title {
       padding-left: 1rem;
       transition: 1s;
-      color: $green-light;
+      color: var(--green-light);
     }
     h1,
     h2,
@@ -39,6 +70,7 @@ $footerbar-height: 96px;
       display: inline-block;
       padding-top: 80px;
       position: relative;
+      color: var(--blue-dark);
       a {
         position: absolute;
         top: 60px;
@@ -49,10 +81,10 @@ $footerbar-height: 96px;
       }
     }
     h1 {
-      color: #1a202c;
+      color: var(--blue-dark);
       font-size: 2.4rem;
       font-weight: 600;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--grey-light);
       display: block;
     }
     h2 {
@@ -70,26 +102,9 @@ $footerbar-height: 96px;
     p {
       padding-bottom: 40px;
       text-indent: 2rem;
-      color: $green-dark;
+      color: var(--green-dark);
       font-weight: 300;
       line-height: 2;
     }
   }
-}
-
-// scrollbar style
-
-::-webkit-scrollbar {
-  width: 12px;
-  background-color: $main-bgc;
-}
-// track
-::-webkit-scrollbar-track {
-  border-radius: 12px;
-}
-// handler
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  border: 3px solid $main-bgc;
 }

@@ -46,6 +46,7 @@ export default {
   grid-template-columns: 1fr 200px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 .table_of_content {

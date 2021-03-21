@@ -66,18 +66,18 @@ export default {
 .prev_section,
 .next_section {
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--grey-light);
   transition: 0.4s;
   &:hover {
-    background-color: $hover-bgc;
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--hover-bgc);
+    box-shadow: 4px 4px 8px 0 var(--grey-light);
   }
 }
 .prev_content,
 .next_content {
   display: grid;
   padding: 16px;
-  grid-template-rows: 32px 96px 24px;
+  grid-template-rows: 32px 72px 24px;
   .title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -86,24 +86,24 @@ export default {
     text-overflow: ellipsis;
     font-size: 24px;
     line-height: 32px;
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
   }
   .dec {
     font-size: 14px;
     line-height: 1.5rem;
-    color: $green-dark;
+    color: var(--green-dark);
     opacity: 0.7;
     text-indent: 2rem;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     white-space: normal;
     overflow: hidden;
   }
   .ph-arrow-left,
   .ph-arrow-right {
-    color: $green-dark;
+    color: var(--green-dark);
     align-self: end;
   }
   .ph-arrow-right {

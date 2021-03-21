@@ -12,6 +12,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  loading: { height: '0px' },
   css: ['@/assets/css/index.scss', '@/assets/css/reset.css'],
   plugins: [{ src: '@/plugins/scrollactive', ssr: false }],
   components: {

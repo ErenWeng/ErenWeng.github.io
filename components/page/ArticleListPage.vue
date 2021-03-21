@@ -3,7 +3,11 @@
     <div v-show="$route.query.tag" class="tag_prompt">
       Tagged - {{ $route.query.tag }}
     </div>
-    <transition-group v-show="showContent" class="article_list" tag="ul">
+    <transition-group
+      v-show="showContent"
+      :class="['article_list', { animation: !$store.state.isLoading }]"
+      tag="ul"
+    >
       <ArticleCard
         v-for="(article, idx) in sliceArray[activePage]"
         :key="`key-${idx}`"
@@ -85,13 +89,16 @@ export default {
   .tag_prompt {
     height: 32px;
     line-height: 32px;
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
+    margin-bottom: 8px;
   }
   .article_list {
     display: grid;
     gap: 16px;
-    animation: show_content 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
+    &.animation {
+      animation: show_content 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
+    }
   }
   .pagination_bar {
     position: absolute;
@@ -106,21 +113,21 @@ export default {
       height: 32px;
       width: 32px;
       border-radius: 4px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      color: $green-dark;
-      background-color: $main-bgc;
+      border: 1px solid var(--grey-light);
+      color: var(--green-dark);
+      background-color: var(--main-bgc);
       transition: 0.4s;
       font-size: 16px;
       cursor: pointer;
       outline: none;
       &:hover {
-        background-color: $hover-bgc;
-        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+        background-color: var(--hover-bgc);
+        box-shadow: 2px 2px 4px 0 var(--grey-light);
       }
       &.active {
-        color: $main-bgc;
-        border: 1px solid $green-light;
-        background-color: $green-light;
+        color: var(--main-bgc);
+        border: 1px solid var(--green-light);
+        background-color: var(--green-light);
       }
     }
   }

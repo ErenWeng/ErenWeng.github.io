@@ -53,11 +53,11 @@ export default {
   text-align: center;
   .error404 {
     font-size: 80px;
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
   }
   .title {
-    color: $green-dark;
+    color: var(--green-dark);
     font-size: 20px;
     font-weight: 400;
     padding: 8px 0;
@@ -72,7 +72,7 @@ export default {
     line-height: 1.6;
     .txt {
       list-style-type: '- ';
-      color: $green-dark;
+      color: var(--green-dark);
       opacity: 0.7;
       font-size: 14px;
       font-weight: 400;
@@ -98,24 +98,24 @@ export default {
       width: 100%;
       height: 100%;
       margin: auto;
-      border-bottom: 1px solid $green-dark;
+      border-bottom: 1px solid var(--green-dark);
       transform: scaleX(0.1);
       transition: 0.4s ease-out;
     }
     .back_txt {
-      color: $green-dark;
+      color: var(--green-dark);
       font-size: 14px;
       font-weight: 400;
       transition: 0.2s;
     }
     &:hover {
-      color: $green-light;
+      color: var(--green-light);
       &::after {
-        border-bottom: 1px solid $green-light;
+        border-bottom: 1px solid var(--green-light);
         transform: scaleX(1);
       }
       .back_txt {
-        color: $green-light;
+        color: var(--green-light);
       }
     }
   }

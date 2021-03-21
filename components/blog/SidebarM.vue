@@ -1,17 +1,17 @@
 <template>
-  <aside
-    :class="['sidebar_m', { show_sidebar_m: !$store.state.toggleSidebar }]"
-  >
-    <div class="backdrop" @click="toggleSidebar"></div>
-    <div class="sidebar">
-      <div class="toggle_sidebar" @click="toggleSidebar">
-        <ph-caret-left :size="24" weight="thin" class="icon" />
-      </div>
-      <div class="logo">
-        <Logo />
-      </div>
-      <div class="blog_nav">
-        <BlogNav @toggleSidebar="toggleSidebar" />
+  <aside class="sidebar_m">
+    <div :class="{ show_sidebar_m: !$store.state.toggleSidebar }">
+      <div class="backdrop" @click="toggleSidebar"></div>
+      <div class="sidebar">
+        <div class="toggle_sidebar" @click="toggleSidebar">
+          <ph-caret-left :size="24" weight="thin" class="icon" />
+        </div>
+        <div class="logo">
+          <Logo />
+        </div>
+        <div class="blog_nav">
+          <BlogNav @toggleSidebar="toggleSidebar" />
+        </div>
       </div>
     </div>
   </aside>
@@ -39,16 +39,16 @@ export default {
 }
 .sidebar {
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   height: 100vh;
   width: $sidebar-width;
-  color: $blue-dark;
+  color: var(--blue-dark);
   border-right: 1px solid rgba(0, 0, 0, 0.07);
   overflow-y: auto;
   overflow-x: hidden;
   padding: 40px 0 0;
   transition: 0.4s ease-out;
-  background-color: $main-bgc;
+  background-color: var(--main-bgc);
   .toggle_sidebar {
     position: absolute;
     top: 0;
@@ -60,10 +60,10 @@ export default {
     display: grid;
     place-items: center;
     .icon {
-      color: $blue-dark;
+      color: var(--blue-dark);
       transition: 0.2s;
       &:hover {
-        color: $green-light;
+        color: var(--green-light);
       }
     }
   }
@@ -84,7 +84,7 @@ export default {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -118,6 +118,14 @@ export default {
     opacity: 0;
     pointer-events: none;
     transform: translateX(-16px);
+  }
+}
+@media (min-width: 1024px) {
+  .toggle_sidebar {
+    pointer-events: none;
+    .icon {
+      opacity: 0;
+    }
   }
 }
 </style>

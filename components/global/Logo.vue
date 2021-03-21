@@ -16,11 +16,11 @@ export default {
   font-size: 24px;
   line-height: 24px;
   padding: 8px;
-  color: $green-dark;
+  color: var(--green-dark);
   font-weight: 300;
   transition: 0.2s;
   &:hover {
-    color: $green-light;
+    color: var(--green-light);
   }
 }
 </style>

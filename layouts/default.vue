@@ -1,5 +1,7 @@
 <template>
   <div>
+    <PageLoader />
+    <ColorSwitcher />
     <Sidebar />
     <SidebarM />
     <section
@@ -17,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Default',
+  name: 'Blog',
   created() {
     if (process.client) {
       this.$store.dispatch('fetchTagsCount')
@@ -29,6 +31,7 @@ export default {
         this.$store.dispatch('toggleSidebar')
       }
     }
+    this.$store.dispatch('setLoading')
   },
 }
 </script>
@@ -44,7 +47,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: $main-bgc;
+  background-color: var(--main-bgc);
   overflow-y: scroll;
 }
 
@@ -53,6 +56,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  transition: 0.4s;
 }
 
 .blog_container {

@@ -48,14 +48,14 @@ export default {
   height: 40px;
   width: 40px;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: $green-dark;
-  background-color: $main-bgc;
+  border: 1px solid var(--grey-light);
+  color: var(--green-dark);
+  background-color: var(--main-bgc);
   transition: 0.4s;
   outline: none;
   &:hover {
-    background-color: $hover-bgc;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--hover-bgc);
+    box-shadow: 2px 2px 4px 0 var(--grey-light);
   }
 }
 </style>

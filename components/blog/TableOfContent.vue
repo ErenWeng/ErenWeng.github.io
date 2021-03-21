@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .scrollactive-item {
-  color: $green-dark;
+  color: var(--green-dark);
   opacity: 0.5;
   font-size: 12px;
   line-height: 1.5rem;
@@ -86,11 +86,11 @@ export default {
 }
 .scroll_active {
   opacity: 1;
-  color: $green-light;
-  border-left: 2px solid $green-light;
+  color: var(--green-light);
+  border-left: 2px solid var(--green-light);
 }
 .dot {
-  color: rgba(0, 0, 0, 0.25); // for dot ...
+  color: var(--grey-dark); // for dot ...
 }
 .li_depth_2 {
   padding-top: 2px;

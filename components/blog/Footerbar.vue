@@ -18,7 +18,7 @@ export default {
   place-items: center;
   padding-top: 36px;
   .author {
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
   }
 }

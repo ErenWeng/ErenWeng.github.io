@@ -8,8 +8,8 @@
           :class="[
             'tab',
             {
-              active: $route.path === `/blog${page.route}`
-            }
+              active: $route.path === `/blog${page.route}`,
+            },
           ]"
           @click.native="$emit('toggleSidebar')"
         >
@@ -20,8 +20,10 @@
           :class="[
             'tab',
             {
-              active: $route.path.match(`/blog${page.route}`) && !$store.state.toggleTagList
-            }
+              active:
+                $route.path.match(`/blog${page.route}`) &&
+                !$store.state.toggleTagList,
+            },
           ]"
           @click="$store.dispatch('toggleTagList')"
         >
@@ -29,18 +31,29 @@
           <ph-caret-down
             :size="14"
             weight="thin"
-            :class="['toggle_tag_list_icon', { toggle: $store.state.toggleTagList }]"
+            :class="[
+              'toggle_tag_list_icon',
+              { toggle: $store.state.toggleTagList },
+            ]"
           />
         </div>
         <transition name="showTag">
-          <ul v-if="page.route === '/tag' && $store.state.toggleTagList" class="tag_list">
+          <ul
+            v-if="page.route === '/tag' && $store.state.toggleTagList"
+            class="tag_list"
+          >
             <li v-for="tag of $store.state.tagsCount" :key="tag.name">
               <nuxt-link
                 :to="{
                   path: `/blog${page.route}/${tag.slug}`,
-                  query: { tag: tag.name }
+                  query: { tag: tag.name },
                 }"
-                :class="['sub_tab', { active: $route.path === `/blog${page.route}/${tag.slug}` }]"
+                :class="[
+                  'sub_tab',
+                  {
+                    active: $route.path === `/blog${page.route}/${tag.slug}`,
+                  },
+                ]"
                 @click.native="$emit('toggleSidebar')"
               >
                 {{ tag.name }} {{ tag.count }}
@@ -54,12 +67,12 @@
 </template>
 
 <script>
-import { PhCaretDown } from 'phosphor-vue';
+import { PhCaretDown } from 'phosphor-vue'
 
 export default {
   name: 'BlogNav',
   components: {
-    PhCaretDown
+    PhCaretDown,
   },
   data() {
     return {
@@ -68,11 +81,11 @@ export default {
         { name: 'Articles', route: '' },
         { name: 'Tags', route: '/tag' },
         { name: 'About', route: '/about' },
-        { name: 'Project', route: '/project' }
-      ]
-    };
-  }
-};
+        { name: 'Project', route: '/project' },
+      ],
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -89,19 +102,23 @@ export default {
       padding-left: 12px;
       display: block;
       line-height: 2rem;
-      color: $green-dark;
+      color: var(--green-dark);
       font-size: 16px;
       font-weight: 300;
       cursor: pointer;
       transition: 0.2s;
-      border-right: 3px solid $main-bgc;
+      border-right: 3px solid transparent;
       &:hover {
-        color: $green-light;
+        color: var(--green-light);
       }
       &.active {
-        border-right: 3px solid $green-light;
-        background: linear-gradient(90deg, $main-bgc, rgba($green-light, $alpha: 0.05));
-        color: $green-light;
+        border-right: 3px solid var(--green-light);
+        background: linear-gradient(
+          90deg,
+          var(--main-bgc),
+          rgba(var(--green-light), $alpha: 0.05)
+        );
+        color: var(--green-light);
       }
       .toggle_tag_list_icon {
         vertical-align: middle;
@@ -118,19 +135,23 @@ export default {
       padding-left: 12px;
       display: block;
       line-height: 1.5rem;
-      color: $green-dark;
+      color: var(--green-dark);
       font-size: 12px;
       font-weight: 300;
       cursor: pointer;
       margin-top: 8px;
       transition: 0.2s;
       &:hover {
-        color: $green-light;
+        color: var(--green-light);
       }
       &.active {
-        border-right: 3px solid $green-light;
-        background: linear-gradient(90deg, $main-bgc, rgba($green-light, $alpha: 0.05));
-        color: $green-light;
+        border-right: 3px solid var(--green-light);
+        background: linear-gradient(
+          90deg,
+          var(--main-bgc),
+          rgba(var(--green-light), $alpha: 0.05)
+        );
+        color: var(--green-light);
       }
     }
   }

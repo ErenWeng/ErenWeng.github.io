@@ -75,25 +75,28 @@ export default {
   filter: sepia(40%) brightness(1.1) contrast(0.8);
 }
 .article_content {
-  background-color: $hover-bgc;
+  background-color: var(--hover-bgc);
   border-radius: 8px;
-  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 4px 2px var(--grey-light);
   padding: 24px;
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
   .article_header {
     font-size: 24px;
-    color: $green-dark;
+    color: var(--green-dark);
     font-weight: 300;
     margin-bottom: 24px;
     .title {
-      color: $green-dark;
+      color: var(--green-dark);
       font-size: 2rem;
       font-weight: 300;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--grey-light);
       margin-bottom: 16px;
       padding-bottom: 8px;
     }
     .dec {
-      color: $green-dark;
+      color: var(--green-dark);
       font-size: 1rem;
       font-weight: 300;
       line-height: 2;
@@ -118,13 +121,13 @@ export default {
         display: inline-block;
         font-size: 12px;
         opacity: 0.5;
-        color: $green-dark;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: var(--green-dark);
+        border: 1px solid var(--grey-light);
         border-radius: 4px;
       }
       .date {
         font-size: 12px;
-        color: $green-dark;
+        color: var(--green-dark);
         opacity: 0.7;
         margin-left: 6px;
         @media (max-width: 568px) {
