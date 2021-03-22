@@ -2,7 +2,7 @@
   <div class="blog">
     <PageLoader />
     <ColorSwitcher />
-    <Sidebar />
+    <Sidebars />
     <SidebarM />
     <section
       :class="[
