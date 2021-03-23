@@ -136,7 +136,7 @@ export default {
       display: block;
       line-height: 1.5rem;
       color: var(--green-dark);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 300;
       cursor: pointer;
       margin-top: 8px;

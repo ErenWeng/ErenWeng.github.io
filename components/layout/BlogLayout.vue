@@ -74,6 +74,7 @@ html {
   gap: 24px;
   @media (max-width: 1024px) {
     margin-left: 0;
+    gap: 0;
   }
   & > * {
     grid-column: 2/4;

@@ -60,7 +60,7 @@ export default {
     function actualScrollHandler() {
       const activeTab = document.querySelector('.scroll_active')
       if (activeTab) {
-        const active = activeTab.href.split('#')[1]
+        const active = decodeURI(activeTab.href.split('#')[1])
         const sections = [
           ...document.querySelectorAll(
             '.nuxt-content h2[id], .nuxt-content h3[id]'
@@ -80,7 +80,7 @@ export default {
 .scrollactive-item {
   color: var(--green-dark);
   opacity: 0.5;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5rem;
   border-left: 2px solid transparent;
 }

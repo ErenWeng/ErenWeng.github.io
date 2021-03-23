@@ -141,15 +141,15 @@ export default {
       padding: 2px 8px;
       display: inline-block;
       font-size: 12px;
-      opacity: 0.5;
+      opacity: 0.7;
       color: var(--green-dark);
-      border: 1px solid var(--grey-light);
+      border: 1px solid var(--grey-dark);
       border-radius: 4px;
     }
     .date {
       font-size: 12px;
       color: var(--green-dark);
-      opacity: 0.7;
+      opacity: 0.8;
       margin-left: 6px;
       @media (max-width: 568px) {
         margin-top: 8px;

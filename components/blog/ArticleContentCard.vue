@@ -1,6 +1,8 @@
 <template>
   <div class="article_content">
-    <img v-if="img" :src="img" class="article_img" />
+    <div class="article_img">
+      <img v-if="img" :src="img" />
+    </div>
     <div class="article_header">
       <h1 class="title">{{ title }}</h1>
       <p class="dec">{{ description }}</p>
@@ -67,12 +69,22 @@ export default {
 
 <style lang="scss" scoped>
 .article_img {
-  margin-bottom: 16px;
   width: 100%;
-  max-height: 280px;
+  margin: 0 auto 24px;
+  max-height: 320px;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
   border-radius: 8px;
-  object-fit: cover;
-  filter: sepia(40%) brightness(1.1) contrast(0.8);
+  img {
+    border-radius: 8px;
+    max-height: 320px;
+    min-height: 100%;
+    min-width: 100%;
+    margin: auto;
+    object-fit: contain;
+    filter: sepia(10%) brightness(1.1) contrast(0.8);
+  }
 }
 .article_content {
   background-color: var(--hover-bgc);
@@ -120,15 +132,15 @@ export default {
         padding: 2px 8px;
         display: inline-block;
         font-size: 12px;
-        opacity: 0.5;
+        opacity: 0.8;
         color: var(--green-dark);
-        border: 1px solid var(--grey-light);
+        border: 1px solid var(--grey-dark);
         border-radius: 4px;
       }
       .date {
         font-size: 12px;
         color: var(--green-dark);
-        opacity: 0.7;
+        opacity: 0.8;
         margin-left: 6px;
         @media (max-width: 568px) {
           margin-top: 8px;
