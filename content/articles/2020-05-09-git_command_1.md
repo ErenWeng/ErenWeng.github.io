@@ -21,7 +21,7 @@ tags:
 
 > --global 參數可以讓所有的 git project 都採用這個預設值
 
-## git 版控
+## 基本版控流程
 
 - 版控流程
 
@@ -43,7 +43,7 @@ tags:
   - `git rm <file> --cached` 單個檔案脫離為 Untracked
   - `rm -rf .git` 刪除所有 git 版控
 
-## git status 檔案狀態建議
+## 檔案狀態
 
 - Untracked files（未被追蹤的檔案）：
 
@@ -57,26 +57,39 @@ tags:
 - Changes to be committed（將要提交的檔案，已 add 進暫存）
   - 使用`git reset Head <file>` 將檔案還原為尚未 add 的狀態
 
-## 狀態、檢查
+## 狀態檢查
 
-- `git status` 查詢現在這個目錄的「狀態」
-- `git show` 查詢最後一次 commit 的修改內容
-- `git show <commit>` 查詢某次 commit 的修改內容
-- `git log` 查詢 commit 的歷史紀錄(時間、作者、做了什麼、貼紙位置、commit)
-- `git log <file>` 只顯示此檔案之紀錄
-- `git log -p <file>` 只顯示此檔案的修改紀錄(+是新增 -是刪除)
-- `git log --name-status` 顯示檔案新增、更動、刪除等資訊情形
-- `git log --stat` 顯示更動檔案的統計及摘要
-- `git log --oneline` 只保留(貼紙、commit、做了什麼)
-- `git log --oneline --author="a"` 只找 a 作者的 commit
-- `git log --oneline --grep="WTF"` 只找 commit 訊息中有 WTF 的
-- `git log --oneline --since="10am" --until="5pm" --after="2020-03"` 找到從 2020 年 3 月之後，每天早上 10 點到下午 5 點的 Commit
-- `git log --oneline --graph` 可看到分支圖形
-- `git log --oneline --graph --decorate --all` 可看到更美的分支圖形
-- `git blame -L 1,10 <file>` 檢查此檔案中第 1~10 行的作者與時間
-- `git diff <file>` 比較檔案最後一次 commit 的到現在已修改的工作目錄和索引
-- `git diff <commit_or_branch> <commit_or_branch>` 比對兩版本
-- `git diff -–name-only <commit_or_branch> <commit_or_branch>` 只想檢視此作者兩個版本的修改差別
+- status
+
+  - `git status` 查詢現在這個目錄的「狀態」
+
+- show
+
+  - `git show` 查詢最後一次 commit 的修改內容
+  - `git show <commit>` 查詢某次 commit 的修改內容
+
+- log
+
+  - `git log` 查詢 commit 的歷史紀錄(時間、作者、做了什麼、貼紙位置、commit)
+  - `git log <file>` 只顯示此檔案之紀錄
+  - `git log -p <file>` 只顯示此檔案的修改紀錄(+是新增 -是刪除)
+  - `git log --name-status` 顯示檔案新增、更動、刪除等資訊情形
+  - `git log --stat` 顯示更動檔案的統計及摘要
+  - `git log --oneline` 只保留(貼紙、commit、做了什麼)
+  - `git log --oneline --author="a"` 只找 a 作者的 commit
+  - `git log --oneline --grep="WTF"` 只找 commit 訊息中有 WTF 的
+  - `git log --oneline --since="10am" --until="5pm" --after="2020-03"` 找到從 2020 年 3 月之後，每天早上 10 點到下午 5 點的 Commit
+  - `git log --oneline --graph` 可看到分支圖形
+  - `git log --oneline --graph --decorate --all` 可看到更美的分支圖形
+
+- blame
+
+  - `git blame -L 1,10 <file>` 檢查此檔案中第 1~10 行的作者與時間
+
+- diff
+  - `git diff <file>` 比較檔案最後一次 commit 的到現在已修改的工作目錄和索引
+  - `git diff <commit_or_branch> <commit_or_branch>` 比對兩版本
+  - `git diff -–name-only <commit_or_branch> <commit_or_branch>` 只想檢視此作者兩個版本的修改差別
 
 ## 還原
 

@@ -25,7 +25,7 @@ export default {
           'createdAt',
         ])
         .where({ tags: { $contains: tag.name } })
-        .sortBy('createdAt', 'asc')
+        .sortBy('createdAt', 'desc')
         .fetch()
       return {
         filArticles,

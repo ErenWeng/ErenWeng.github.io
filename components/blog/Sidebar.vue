@@ -43,7 +43,7 @@ export default {
   }
   .toggle_sidebar {
     position: absolute;
-    top: 0;
+    top: -40px;
     right: 0;
     height: 40px;
     width: 40px;
@@ -51,8 +51,9 @@ export default {
     border-radius: 50%;
     display: grid;
     place-items: center;
+    pointer-events: none;
     .icon {
-      display: none;
+      opacity: 0;
       color: var(--blue-dark);
       transition: 0.2s;
       &:hover {
@@ -81,7 +82,6 @@ export default {
     pointer-events: none;
     background-color: transparent;
     .toggle_sidebar {
-      pointer-events: visible;
       .icon {
         transform: scaleX(-1);
       }
@@ -95,9 +95,8 @@ export default {
     transform: translateX(-16px);
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1023px) {
   .toggle_sidebar {
-    pointer-events: none;
     .icon {
       opacity: 0;
     }

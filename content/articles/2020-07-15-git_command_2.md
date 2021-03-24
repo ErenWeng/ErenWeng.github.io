@@ -1,7 +1,7 @@
 ---
 title: Git 筆記（遠端篇）
 description: Git 遠端與本地端互動常用指令紀錄
-img: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2000px-Git_icon.svg.png
+img: https://cdn.icon-icons.com/icons2/1379/PNG/512/folderredgit_92905.png
 alt: git
 author:
   name: Eren

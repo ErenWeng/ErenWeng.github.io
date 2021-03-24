@@ -1,6 +1,7 @@
 // scrollbar style
 ::-webkit-scrollbar {
   width: 12px;
+  height: 8px;
   background-color: var(--main-bgc);
 }
 // track
@@ -18,7 +19,7 @@
 :root {
   --green-dark: #355e41;
   --green-light: #41b883;
-  --blue-dark: #34495e;
+  --blue-dark: #5189c2;
   --main-bgc: #f5f2f0;
   --hover-bgc: #fffcfa;
   --grey-dark: rgba(0, 0, 0, 0.25);
@@ -52,57 +53,4 @@ $footerbar-height: 96px;
   text-overflow: ellipsis;
 }
 
-// markdown content
-.markdown_content {
-  .nuxt-content {
-    font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
-    .active_title {
-      padding-left: 1rem;
-      transition: 1s;
-      color: var(--green-light);
-    }
-    h1,
-    h2,
-    h3 {
-      padding-left: 0;
-      display: inline-block;
-      padding-top: 80px;
-      position: relative;
-      color: var(--blue-dark);
-      a {
-        position: absolute;
-        top: 60px;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        outline: none;
-      }
-    }
-    h1 {
-      color: var(--blue-dark);
-      font-size: 2.4rem;
-      font-weight: 600;
-      border-bottom: 1px solid var(--grey-light);
-      display: block;
-    }
-    h2 {
-      font-weight: 600;
-      font-size: 1.75rem;
-      margin-bottom: 28px;
-      line-height: 1.33;
-    }
-    h3 {
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    p {
-      padding-bottom: 40px;
-      text-indent: 2rem;
-      color: var(--green-dark);
-      font-weight: 300;
-      line-height: 2;
-    }
-  }
-}
+@import './markdown.scss';
