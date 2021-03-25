@@ -30,7 +30,7 @@ export default {
   position: fixed;
   z-index: 100;
   height: 100vh;
-  width: $sidebar-width;
+  width: var(--sidebar-width);
   color: var(--blue-dark);
   border-right: 1px solid var(--grey-light);
   overflow-y: auto;
@@ -76,7 +76,7 @@ export default {
 }
 @media (max-width: 1024px) {
   .sidebar {
-    width: $hide-sidebar-width;
+    width: var(--hide-sidebar-width);
     z-index: 999;
     border: none;
     pointer-events: none;

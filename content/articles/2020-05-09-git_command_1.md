@@ -12,7 +12,7 @@ tags:
   - git
 ---
 
-## 設定
+## 基本設定
 
 - `git config --global user.name "newbie"` 設定姓名
 - `git config --global user.email "newbie@email.com"` 設定 eamil
@@ -23,39 +23,67 @@ tags:
 
 ## 基本版控流程
 
-- 版控流程
+> 流程：工作目錄(Woking Directory/Tree) -> 暫存區(Staging Area) -> 本地端儲存庫(Local Repositery) -> 遠端儲存庫(remote Repositery)
 
-  1.`git init` 初始化現在位置的資料夾並且讓 git 來控制版本
+> 每一次推送到儲存庫時就如同對所有檔案做一次的快照
 
-  2-1. `git add <file>` 將修改的檔案由工作目錄 Working Directory/Tree 推送至暫存區域 Staging Area，向 git 說明即將要提交的檔案
+- 基本版控
 
-  2-2. `git add .` 所有檔案推送至暫存
+  1. `git init` 在當前位置初始化 git 來建立版本控制儲存庫
 
-  2-3. `git rm <file>` 向 git 說明檔案將要移除，相當於`git add`
+  2. `git add` 向 git 說明即將要提交的檔案 **(工作目錄 -> 暫存區)**
 
-  2-4. `git add -u` 加入所有被修改過的檔案（包括刪除）
+     2-1. `git add .` / `git add --all` 推送所有檔案至暫存區
 
-  3.`git commit -m "<message>"` 將修改由暫存區愈推送至本機儲存庫，並且會新增一個 commit 將 Head 貼紙一併移動至此（沒加訊息會跑到 vim 編輯器，可輸入`:q`離開）
+     2-2. `git add <file>` 推送特定檔案至暫存區
 
-  4.`git push` 將修改送到遠端儲存庫
+     2-3. `git add -u` 加入所有被修改過的檔案（包括刪除）
+
+  3. `git commit -m "<message>"` 向 git 說明新增一個 commit **(暫存區 -> 本地端儲存庫)**
+
+     3-1. 在 commit 之後 Head ticket 會一併移動至新的 commit
+
+     3-2. 沒有填 message 會跑到 vim 編輯器，可輸入`:q`離開
+
+     3-3. `git commit -am "<message>"` (如同 add + commit)
+
+  > HEAD ticket 是用來告知當前的版本在哪個 commit 上
+
+  4. `git push` 推送到遠端儲存庫 **(本地端儲存庫 -> 遠端儲存庫)**
 
 - 脫離版控
+
   - `git rm <file> --cached` 單個檔案脫離為 Untracked
-  - `rm -rf .git` 刪除所有 git 版控
+
+  - `rm -rf .git` 刪除版本控制儲存庫
+
+- 變更 / 刪除檔案
+
+  - `git mv <file> <newFileName>` 向 git 說明檔案更名 (如同 mv + git add)
+
+  - `git rm <file>` 向 git 說明檔案要移除 (如同 rm + git add)
 
 ## 檔案狀態
 
 - Untracked files（未被追蹤的檔案）：
 
-  - 使用`git add` 推進暫存
+  - 此時檔案位於工作目錄，通常為新加入的檔案，狀態尚未被 git 追蹤
 
 - Changes not staged for commit（被更動但尚未要提交的檔案）：
 
-  - 使用`git add`暫存
-  - 使用`git checkout <file>` 回到修改前的樣子
+  - 此時檔案位於工作目錄，原有檔案做過修改後的狀態
 
-- Changes to be committed（將要提交的檔案，已 add 進暫存）
-  - 使用`git reset Head <file>` 將檔案還原為尚未 add 的狀態
+  > 使用 `git checkout <file>` 可回到修改前的樣子
+
+- Changes to be committed（將要提交的檔案）
+
+  - 此時檔案位於暫存區
+
+  > 使用 `git reset Head <file>` 可將檔案還原為尚未 add 的狀態
+
+- Committed (已提交)
+
+  - 此時檔案位於本地端儲存庫
 
 ## 狀態檢查
 

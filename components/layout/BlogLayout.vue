@@ -62,11 +62,11 @@ html {
 .blog_container {
   padding-top: 40px;
   min-height: 100vh;
-  margin-left: $sidebar-width;
+  margin-left: var(--sidebar-width);
   transition: 0.4s ease-out;
   display: grid;
   justify-content: center;
-  grid-template-rows: 1fr $footerbar-height;
+  grid-template-rows: 1fr var(--footerbar-height);
   grid-template-columns: minmax(40px, 8%) minmax(min-content, 720px) 200px minmax(
       40px,
       8%

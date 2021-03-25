@@ -41,7 +41,7 @@ export default {
   position: fixed;
   z-index: 99;
   height: 100vh;
-  width: $sidebar-width;
+  width: var(--sidebar-width);
   color: var(--blue-dark);
   border-right: 1px solid var(--grey-light);
   overflow-y: auto;
@@ -98,7 +98,7 @@ export default {
     pointer-events: none;
   }
   .sidebar {
-    width: $hide-sidebar-width;
+    width: var(--hide-sidebar-width);
     background: none;
     border: none;
     pointer-events: none;

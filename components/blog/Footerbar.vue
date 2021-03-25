@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .footerbar {
-  height: $footerbar-height;
+  height: var(--footerbar-height);
   width: 100%;
   display: grid;
   place-items: center;
