@@ -17,8 +17,9 @@
         <li v-for="item in contact" :key="item.icon" class="contact_list">
           <a
             :href="item.link"
-            target="_blank"
             :alt="item.icon"
+            :title="item.title"
+            target="_blank"
             class="contact_icon"
           >
             <component :is="item.icon" size="32" weight="light" />
@@ -57,14 +58,17 @@ export default {
         {
           icon: 'PhGithubLogo',
           link: 'https://github.com/ErenWeng',
+          title: 'Github',
         },
         {
           icon: 'PhLinkedinLogo',
           link: 'https://github.com/ErenWeng',
+          title: 'Linkedin',
         },
         {
           icon: 'PhEnvelope',
           link: 'mailto:f245986@gmail.com',
+          title: 'email: f245986@gmail.com',
         },
       ],
       workTools: [
