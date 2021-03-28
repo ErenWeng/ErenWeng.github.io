@@ -92,7 +92,7 @@ export default {
   box-shadow: 1px 1px 4px 2px var(--grey-light);
   padding: 24px;
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 16px;
   }
   .article_header {
     font-size: 24px;
