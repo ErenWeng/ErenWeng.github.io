@@ -1,6 +1,6 @@
 <template>
   <transition name="page">
-    <div v-if="$store.state.isLoading" class="page_loader">
+    <div v-show="$store.state.isLoading" class="page_loader">
       <div class="loading_txt">
         <span v-for="txt of loadingString" :key="txt" class="txt">
           {{ txt }}

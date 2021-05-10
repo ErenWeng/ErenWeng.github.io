@@ -24,7 +24,7 @@ export default {
     ],
   },
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
-  modules: ['@nuxtjs/axios', '@nuxt/content', '@nuxtjs/style-resources'],
+  modules: ['@nuxtjs/axios', '@nuxt/content'],
   styleResources: {
     scss: ['@/assets/css/index.scss'],
   },

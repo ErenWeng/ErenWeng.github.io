@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 content/*/-example.md
+assets/css/-github.scss
 
 # Logs
 /logs
