@@ -2,17 +2,17 @@
   <div class="color_switcher">
     <transition-group name="switch" mode="out-in">
       <div
+        key="light"
         v-show="$store.state.colorTheme === 'light'"
         class="click_icon"
-        key="light"
         @click="colorSwitch('dark')"
       >
         <ph-sun :size="24" weight="thin" class="switch_icon" />
       </div>
       <div
+        key="dark"
         v-show="$store.state.colorTheme === 'dark'"
         class="click_icon"
-        key="dark"
         @click="colorSwitch('light')"
       >
         <ph-moon-stars :size="24" weight="thin" class="switch_icon" />
