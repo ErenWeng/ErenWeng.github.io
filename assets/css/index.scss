@@ -1,0 +1,63 @@
+// scrollbar style
+::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+  background-color: var(--main-bgc);
+}
+// track
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+// handler
+::-webkit-scrollbar-thumb {
+  background: var(--grey-dark);
+  border-radius: 10px;
+  border: 3px solid var(--main-bgc);
+}
+
+// nuxt-color-mode
+:root {
+  // size
+  --sidebar-width: 200px;
+  --hide-sidebar-width: 40px;
+  --footerbar-height: 88px;
+  // color
+  --green-dark: #355e41;
+  --green: #108775;
+  --green-light: #00c58e;
+  --dark: #2f495e;
+  --blue-light: #5189c2;
+  --main-bgc: #f5f2f0;
+  --hover-bgc: #fffcfa;
+  --grey-light: rgba(0, 0, 0, 0.07);
+  --grey-dark: rgba(0, 0, 0, 0.25);
+}
+[color-mode='dark'] {
+  --green-dark: #41b883;
+  --green-light: #a4dfc4;
+  --blue-dark: #8ab6db;
+  --main-bgc: #2a2a2a;
+  --hover-bgc: #333;
+  --grey-dark: rgba(255, 255, 255, 0.25);
+  --grey-light: rgba(255, 255, 255, 0.15);
+  --pre-bgc: rgba(225, 225, 225, 0.85);
+  --main-color: #f5f2f0;
+
+  color: #f5f2f0;
+}
+
+// global style
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.truncate-m {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a {
+  text-decoration: none;
+}
+
+@import './markdown.scss';
