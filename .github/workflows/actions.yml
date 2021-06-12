@@ -1,4 +1,4 @@
-name: actions
+name: GitHub Pages
 
 on:
   push:
@@ -6,10 +6,7 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
