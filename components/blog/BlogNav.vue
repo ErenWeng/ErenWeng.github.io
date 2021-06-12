@@ -57,7 +57,7 @@ export default {
         { name: 'Articles', route: '/blog' },
         // { name: 'Project', route: '/project' },
         { name: 'About', route: '/about' },
-        { name: 'Tags', route: '/tag' },
+        // { name: 'Tags', route: '/tag' },
       ],
     }
   },

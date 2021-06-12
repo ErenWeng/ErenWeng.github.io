@@ -1,5 +1,5 @@
 <template>
-  <div class="home_page">
+  <div :class="['home_page', { animation: !$store.state.isLoading }]">
     <section class="myself">
       <div class="card_header">
         <div class="img">
@@ -77,6 +77,9 @@ export default {
   li {
     padding: 0;
   }
+  &.animation {
+    animation: appear 0.8s cubic-bezier(0.15, 0.75, 0, 1) both;
+  }
 }
 .card_header {
   position: relative;
@@ -144,6 +147,18 @@ export default {
         color: var(--green-light);
       }
     }
+  }
+}
+@keyframes appear {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translateX(5vw);
+  }
+  80%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

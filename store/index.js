@@ -43,7 +43,7 @@ export const actions = {
     localStorage.setItem('color-mode', type)
     htmlElement.setAttribute('color-mode', type)
   },
-  async fetchTagsCount({ commit, app }) {
+  async fetchTagsCount({ commit }) {
     const baseURL = `/_content`
     const filter = `/articles?only=tags`
     const tagAPI = await this.$axios.$get(`${baseURL}${filter}`)
