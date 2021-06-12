@@ -1,8 +1,5 @@
 export default {
   target: 'static',
-  router: {
-    base: 'erenweng.github.io',
-  },
   head: {
     title: 'my-blog',
     htmlAttrs: {
