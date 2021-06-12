@@ -31,7 +31,11 @@ export default {
   styleResources: {
     scss: ['@/assets/css/index.scss'],
   },
-  axios: {},
+  axios: {
+    baseURL: 'production'
+      ? 'https://erenweng.github.io'
+      : 'http://localhost:8000',
+  },
   content: {},
   build: {},
   server: {

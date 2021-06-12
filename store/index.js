@@ -43,9 +43,9 @@ export const actions = {
     localStorage.setItem('color-mode', type)
     htmlElement.setAttribute('color-mode', type)
   },
-  async fetchTagsCount({ commit }) {
-    const baseURL = `/_content/`
-    const filter = `articles?only=tags`
+  async fetchTagsCount({ commit, app }) {
+    const baseURL = app.$config.axios.baseURL
+    const filter = `/_content/articles?only=tags`
     const tagAPI = await this.$axios.$get(`${baseURL}${filter}`)
 
     const allTagsInArray = []

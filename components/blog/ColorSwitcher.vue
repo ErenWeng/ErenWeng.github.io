@@ -2,7 +2,7 @@
   <div class="color_switcher">
     <transition name="switch" mode="out-in">
       <div
-        v-if="$store.state.colorTheme === 'light' || !$store.state.colorTheme"
+        v-if="$store.state.colorTheme === 'light'"
         class="click_icon"
         @click="colorSwitch('dark')"
       >

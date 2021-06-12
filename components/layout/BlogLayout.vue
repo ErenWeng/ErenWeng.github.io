@@ -32,6 +32,7 @@ export default {
       }
     }
     this.$store.dispatch('setLoading')
+    this.$store.dispatch('setColorTheme', 'light')
   },
 }
 </script>
