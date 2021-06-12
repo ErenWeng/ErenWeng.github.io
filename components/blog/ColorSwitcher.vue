@@ -1,21 +1,23 @@
 <template>
   <div class="color_switcher">
-    <transition name="switch" mode="out-in">
+    <transition-group name="switch" mode="out-in">
       <div
-        v-if="$store.state.colorTheme === 'light'"
+        v-show="$store.state.colorTheme === 'light'"
         class="click_icon"
+        key="light"
         @click="colorSwitch('dark')"
       >
         <ph-sun :size="24" weight="thin" class="switch_icon" />
       </div>
       <div
-        v-else-if="$store.state.colorTheme === 'dark'"
+        v-show="$store.state.colorTheme === 'dark'"
         class="click_icon"
+        key="dark"
         @click="colorSwitch('light')"
       >
         <ph-moon-stars :size="24" weight="thin" class="switch_icon" />
       </div>
-    </transition>
+    </transition-group>
   </div>
 </template>
 
