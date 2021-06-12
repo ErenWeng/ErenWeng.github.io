@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="/blog">
+  <NuxtLink to="/">
     <div class="logo_name">EREN</div>
   </NuxtLink>
 </template>

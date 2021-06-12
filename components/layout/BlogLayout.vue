@@ -67,11 +67,11 @@ html {
   display: grid;
   justify-content: center;
   grid-template-rows: 1fr var(--footerbar-height);
-  grid-template-columns: minmax(40px, 6%) minmax(min-content, 720px) 200px minmax(
+  grid-template-columns: minmax(40px, 2%) minmax(min-content, 720px) 200px minmax(
       40px,
-      6%
+      2%
     );
-  gap: 24px;
+  gap: 8px;
   @media (max-width: 1024px) {
     margin-left: 0;
     gap: 0;

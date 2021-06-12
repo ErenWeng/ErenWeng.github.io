@@ -13,7 +13,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   loading: { height: '0px' },
-  css: ['@/assets/css/index.scss', '@/assets/css/reset.css'],
+  css: ['@/assets/css/index.scss', '@/assets/css/normalize.css'],
   plugins: [{ src: '@/plugins/scrollactive', ssr: false }],
   components: {
     dirs: [
@@ -31,4 +31,7 @@ export default {
   axios: {},
   content: {},
   build: {},
+  server: {
+    port: 8000,
+  },
 }

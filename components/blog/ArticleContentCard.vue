@@ -87,9 +87,7 @@ export default {
   }
 }
 .article_content {
-  background-color: var(--hover-bgc);
   border-radius: 8px;
-  box-shadow: 1px 1px 4px 2px var(--grey-light);
   padding: 24px;
   @media (max-width: 768px) {
     padding: 16px;

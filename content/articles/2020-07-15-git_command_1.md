@@ -1,13 +1,9 @@
 ---
 title: Git 筆記（本地篇）
 description: Git 本地端常用指令紀錄
-img: https://cdn.icon-icons.com/icons2/1379/PNG/512/folderbluegit_93353.png
+img: https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1955&q=80
 alt: git
-author:
-  name: Eren
-  bio: All about Eren
-  img: https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80
-createdAt: 2020-05-09 11:56:58 +0800
+createdAt: 2020-07-15 11:56:58 +0800
 tags:
   - git
 ---

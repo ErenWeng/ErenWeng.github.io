@@ -4,6 +4,7 @@
       highlight-first-item
       active-class="scroll_active"
       tag="ul"
+      class="nav"
       :scroll-offset="0"
       :offset="0"
       :click-to-scroll="true"
@@ -77,6 +78,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav {
+  padding: 0;
+}
 .scrollactive-item {
   color: var(--green-dark);
   opacity: 0.5;
@@ -90,6 +94,7 @@ export default {
   border-left: 2px solid var(--green-light);
 }
 .dot {
+  list-style: none;
   color: var(--grey-dark); // for dot ...
 }
 .li_depth_2 {

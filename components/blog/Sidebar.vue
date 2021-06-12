@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <div :class="{ animation: !$store.state.isLoading }">
+    <div :class="['toggle', { animation: !$store.state.isLoading }]">
       <div class="toggle_sidebar" @click="$store.dispatch('toggleSidebar')">
         <ph-caret-left :size="24" weight="thin" class="icon" />
       </div>
@@ -32,12 +32,16 @@ export default {
   height: 100vh;
   width: var(--sidebar-width);
   color: var(--blue-dark);
-  border-right: 1px solid var(--grey-light);
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 40px 0 0;
-  transition: 0.4s ease-out;
   background-color: var(--main-bgc);
+  transition: width 0.4s ease-out;
+  transition: background-color 0.3s ease-out;
+  .toggle {
+    min-height: 100vh;
+    padding: 40px 0 0;
+    border-right: 1px solid var(--grey-light);
+  }
   .animation {
     animation: show_sidebar 2s cubic-bezier(0.15, 0.75, 0, 1) both;
   }
@@ -81,6 +85,9 @@ export default {
     border: none;
     pointer-events: none;
     background-color: transparent;
+    .toggle {
+      border: none;
+    }
     .toggle_sidebar {
       .icon {
         transform: scaleX(-1);

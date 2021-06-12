@@ -1,20 +1,20 @@
 <template>
   <div class="color_switcher">
     <transition name="switch" mode="out-in">
-      <ph-sun
+      <div
         v-if="$store.state.colorTheme === 'light'"
-        :size="24"
-        weight="thin"
-        class="switch_icon"
+        class="click_icon"
         @click="colorSwitch('dark')"
-      />
-      <ph-moon-stars
-        v-else
-        :size="24"
-        weight="thin"
-        class="switch_icon"
+      >
+        <ph-sun :size="24" weight="thin" class="switch_icon" />
+      </div>
+      <div
+        v-else-if="$store.state.colorTheme === 'dark'"
+        class="click_icon"
         @click="colorSwitch('light')"
-      />
+      >
+        <ph-moon-stars :size="24" weight="thin" class="switch_icon" />
+      </div>
     </transition>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
     PhMoonStars,
   },
   mounted() {
-    const theme = localStorage.getItem('nuxt-color-mode')
+    const theme = localStorage.getItem('color-mode')
     this.colorSwitch(theme)
   },
   methods: {
@@ -47,11 +47,14 @@ export default {
   right: 0;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  overflow: hidden;
+  .click_icon {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+  }
 }
 .switch_icon {
   color: var(--green-dark);

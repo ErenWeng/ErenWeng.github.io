@@ -40,8 +40,8 @@ export const actions = {
   setColorTheme({ commit }, type) {
     const htmlElement = document.documentElement
     commit('SET_COLOR_THEME', type)
-    localStorage.setItem('nuxt-color-mode', type)
-    htmlElement.setAttribute('nuxt-color-mode', type)
+    localStorage.setItem('color-mode', type)
+    htmlElement.setAttribute('color-mode', type)
   },
   async fetchTagsCount({ commit }) {
     const baseURL = `/_content/`
@@ -61,6 +61,7 @@ export const actions = {
       if (!tagsCountData[tag]) tagsCountData[tag] = 0
       tagsCountData[tag]++
     })
+    delete tagsCountData.undefined
     tagsData = Object.keys(tagsCountData).map((el) => ({
       name: el,
       slug: el.replace(' ', '_'),

@@ -4,27 +4,15 @@
       <li v-for="page of blogPage" :key="page.name" class="nav_item">
         <nuxt-link
           v-if="page.route !== '/tag'"
-          :to="`/blog${page.route}`"
-          :class="[
-            'tab',
-            {
-              active: $route.path === `/blog${page.route}`,
-            },
-          ]"
+          :to="`${page.route}`"
+          :class="['tab', { active: commonTab(page) }]"
           @click.native="$emit('toggleSidebar')"
         >
           {{ page.name }}
         </nuxt-link>
         <div
           v-else
-          :class="[
-            'tab',
-            {
-              active:
-                $route.path.match(`/blog${page.route}`) &&
-                !$store.state.toggleTagList,
-            },
-          ]"
+          :class="['tab', { active: tagTab(page) }]"
           @click="$store.dispatch('toggleTagList')"
         >
           {{ page.name }}
@@ -37,30 +25,18 @@
             ]"
           />
         </div>
-        <transition name="showTag">
-          <ul
-            v-if="page.route === '/tag' && $store.state.toggleTagList"
-            class="tag_list"
-          >
-            <li v-for="tag of $store.state.tagsCount" :key="tag.name">
-              <nuxt-link
-                :to="{
-                  path: `/blog${page.route}/${tag.slug}`,
-                  query: { tag: tag.name },
-                }"
-                :class="[
-                  'sub_tab',
-                  {
-                    active: $route.path === `/blog${page.route}/${tag.slug}`,
-                  },
-                ]"
-                @click.native="$emit('toggleSidebar')"
-              >
-                {{ tag.name }} {{ tag.count }}
-              </nuxt-link>
-            </li>
-          </ul>
-        </transition>
+        <ul v-show="page.route === '/tag'" class="tag_list">
+          <li v-for="tag of $store.state.tagsCount" :key="tag.name">
+            <nuxt-link
+              :to="{ path: `/blog${page.route}/${tag.slug}` }"
+              :class="['sub_tab', { active: subTagTab(page, tag) }]"
+              :style="toggleStyle"
+              @click.native="$emit('toggleSidebar')"
+            >
+              {{ tag.name }} {{ tag.count }}
+            </nuxt-link>
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>
@@ -78,12 +54,35 @@ export default {
     return {
       tagsCount: [],
       blogPage: [
-        { name: 'Articles', route: '' },
-        { name: 'Tags', route: '/tag' },
+        { name: 'Articles', route: '/blog' },
+        // { name: 'Project', route: '/project' },
         { name: 'About', route: '/about' },
-        { name: 'Project', route: '/project' },
+        { name: 'Tags', route: '/tag' },
       ],
     }
+  },
+  computed: {
+    toggleStyle() {
+      return {
+        height: this.$store.state.toggleTagList ? 24 + 'px' : 0,
+        marginTop: this.$store.state.toggleTagList ? 8 + 'px' : 0,
+        opacity: this.$store.state.toggleTagList ? 1 : 0,
+      }
+    },
+  },
+  methods: {
+    commonTab(page) {
+      return this.$route.path === `${page.route}`
+    },
+    tagTab(page) {
+      return (
+        this.$route.path.match(`/blog${page.route}`) &&
+        !this.$store.state.toggleTagList
+      )
+    },
+    subTagTab(page, tag) {
+      return this.$route.path === `/blog${page.route}/${tag.slug}`
+    },
   },
 }
 </script>
@@ -96,6 +95,7 @@ export default {
   padding-bottom: 40px;
   padding-left: 12px;
   .nav_item {
+    list-style: none;
     margin-bottom: 8px;
     transition: 0.2s;
     .tab {
@@ -130,6 +130,10 @@ export default {
         }
       }
     }
+    .tag_list {
+      list-style: none;
+      padding: 0;
+    }
     .sub_tab {
       margin-left: 12px;
       padding-left: 12px;
@@ -139,7 +143,7 @@ export default {
       font-size: 13px;
       font-weight: 300;
       cursor: pointer;
-      margin-top: 8px;
+      // margin-top: 8px;
       transition: 0.2s;
       &:hover {
         color: var(--green-light);
@@ -156,18 +160,18 @@ export default {
     }
   }
 }
-.showTag-enter-active,
-.showTag-leave-active {
-  max-height: 1000px;
-  transform: translateY(0%);
-  transition: 0.5s;
-}
-.showTag-enter,
-.showTag-leave-to {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-15%);
-  transition: 0.5s;
-}
+// .showTag-enter-active,
+// .showTag-leave-active {
+//   max-height: 1000px;
+//   transform: translateY(0%);
+//   transition: 0.5s;
+// }
+// .showTag-enter,
+// .showTag-leave-to {
+//   overflow: hidden;
+//   max-height: 0;
+//   opacity: 0;
+//   transform: translateY(-15%);
+//   transition: 0.5s;
+// }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="home_page">
-    <div v-show="$route.query.tag" class="tag_prompt">
-      Tagged - {{ $route.query.tag }}
+    <div v-show="$route.params.tag" class="tag_prompt">
+      Tagged - {{ $route.params.tag }}
     </div>
     <transition-group
       v-show="showContent"
@@ -94,6 +94,8 @@ export default {
     margin-bottom: 8px;
   }
   .article_list {
+    padding: 0;
+    list-style: none;
     display: grid;
     gap: 16px;
     &.animation {

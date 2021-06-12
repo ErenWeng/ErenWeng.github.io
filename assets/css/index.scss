@@ -17,22 +17,22 @@
 
 // nuxt-color-mode
 :root {
-  --green-dark: #355e41;
-  --green-light: #41b883;
-  --blue-dark: #5189c2;
-  --main-bgc: #f5f2f0;
-  --hover-bgc: #fffcfa;
-  --grey-dark: rgba(0, 0, 0, 0.25);
-  --grey-light: rgba(0, 0, 0, 0.07);
-  --pre-bgc: rgba(0, 0, 0, 0.07);
-  --main-color: #24292e;
-
   // size
   --sidebar-width: 200px;
   --hide-sidebar-width: 40px;
-  --footerbar-height: 96px;
+  --footerbar-height: 88px;
+  // color
+  --green-dark: #355e41;
+  --green: #108775;
+  --green-light: #00c58e;
+  --dark: #2f495e;
+  --blue-light: #5189c2;
+  --main-bgc: #f5f2f0;
+  --hover-bgc: #fffcfa;
+  --grey-light: rgba(0, 0, 0, 0.07);
+  --grey-dark: rgba(0, 0, 0, 0.25);
 }
-[nuxt-color-mode='dark'] {
+[color-mode='dark'] {
   --green-dark: #41b883;
   --green-light: #a4dfc4;
   --blue-dark: #8ab6db;
@@ -55,6 +55,9 @@
 .truncate-m {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+a {
+  text-decoration: none;
 }
 
 @import './markdown.scss';
