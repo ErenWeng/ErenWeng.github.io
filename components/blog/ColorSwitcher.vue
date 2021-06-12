@@ -2,14 +2,14 @@
   <div class="color_switcher">
     <transition name="switch" mode="out-in">
       <div
-        v-if="$store.state.colorTheme === 'light'"
+        v-show="$store.state.colorTheme === 'light'"
         class="click_icon"
         @click="colorSwitch('dark')"
       >
         <ph-sun :size="24" weight="thin" class="switch_icon" />
       </div>
       <div
-        v-else-if="$store.state.colorTheme === 'dark'"
+        v-show="$store.state.colorTheme === 'dark'"
         class="click_icon"
         @click="colorSwitch('light')"
       >
