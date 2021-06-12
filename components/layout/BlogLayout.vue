@@ -20,11 +20,6 @@
 <script>
 export default {
   name: 'BlogLayout',
-  created() {
-    if (process.client) {
-      // this.$store.dispatch('fetchTagsCount')
-    }
-  },
   mounted() {
     window.onresize = () => {
       if (this.$store.state.toggleSidebar && window.innerWidth < 1024) {

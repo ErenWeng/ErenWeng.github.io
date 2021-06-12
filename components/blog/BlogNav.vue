@@ -3,85 +3,33 @@
     <ul class="nav_list">
       <li v-for="page of blogPage" :key="page.name" class="nav_item">
         <nuxt-link
-          v-if="page.route !== '/tag'"
           :to="`${page.route}`"
           :class="['tab', { active: commonTab(page) }]"
           @click.native="$emit('toggleSidebar')"
         >
           {{ page.name }}
         </nuxt-link>
-        <div
-          v-else
-          :class="['tab', { active: tagTab(page) }]"
-          @click="$store.dispatch('toggleTagList')"
-        >
-          {{ page.name }}
-          <ph-caret-down
-            :size="14"
-            weight="thin"
-            :class="[
-              'toggle_tag_list_icon',
-              { toggle: $store.state.toggleTagList },
-            ]"
-          />
-        </div>
-        <ul v-show="page.route === '/tag'" class="tag_list">
-          <li v-for="tag of $store.state.tagsCount" :key="tag.name">
-            <nuxt-link
-              :to="{ path: `/blog${page.route}/${tag.slug}` }"
-              :class="['sub_tab', { active: subTagTab(page, tag) }]"
-              :style="toggleStyle"
-              @click.native="$emit('toggleSidebar')"
-            >
-              {{ tag.name }} {{ tag.count }}
-            </nuxt-link>
-          </li>
-        </ul>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import { PhCaretDown } from 'phosphor-vue'
-
 export default {
   name: 'BlogNav',
-  components: {
-    PhCaretDown,
-  },
   data() {
     return {
-      tagsCount: [],
       blogPage: [
         { name: 'Articles', route: '/blog' },
+        { name: 'Tags', route: '/blog/tag' },
         // { name: 'Project', route: '/project' },
         { name: 'About', route: '/about' },
-        // { name: 'Tags', route: '/tag' },
       ],
     }
-  },
-  computed: {
-    toggleStyle() {
-      return {
-        height: this.$store.state.toggleTagList ? 24 + 'px' : 0,
-        marginTop: this.$store.state.toggleTagList ? 8 + 'px' : 0,
-        opacity: this.$store.state.toggleTagList ? 1 : 0,
-      }
-    },
   },
   methods: {
     commonTab(page) {
       return this.$route.path === `${page.route}`
-    },
-    tagTab(page) {
-      return (
-        this.$route.path.match(`/blog${page.route}`) &&
-        !this.$store.state.toggleTagList
-      )
-    },
-    subTagTab(page, tag) {
-      return this.$route.path === `/blog${page.route}/${tag.slug}`
     },
   },
 }
@@ -160,18 +108,4 @@ export default {
     }
   }
 }
-// .showTag-enter-active,
-// .showTag-leave-active {
-//   max-height: 1000px;
-//   transform: translateY(0%);
-//   transition: 0.5s;
-// }
-// .showTag-enter,
-// .showTag-leave-to {
-//   overflow: hidden;
-//   max-height: 0;
-//   opacity: 0;
-//   transform: translateY(-15%);
-//   transition: 0.5s;
-// }
 </style>

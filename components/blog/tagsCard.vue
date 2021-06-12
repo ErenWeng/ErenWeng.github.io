@@ -1,6 +1,6 @@
 <template>
   <li class="article_card">
-    <nuxt-link :to="`/blog/article/${slug}`" class="article_link">
+    <nuxt-link :to="`/blog/tag/${title}`" class="article_link">
       <div v-if="img" class="img_info">
         <img :src="img" />
       </div>
@@ -103,18 +103,11 @@ export default {
   gap: 4px;
   width: 100%;
   @media (max-width: 568px) {
-    grid-template-rows: 66px 1fr;
+    grid-template-rows: 32px 2.2fr 1fr;
   }
   .title {
     font-size: 24px;
     color: var(--green-dark);
-    display: -webkit-box;
-    @media (max-width: 568px) {
-      font-size: 20px;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      white-space: normal;
-    }
   }
   .dec {
     font-size: 14px;
@@ -128,7 +121,6 @@ export default {
     white-space: normal;
     @media (max-width: 568px) {
       -webkit-line-clamp: 4;
-      display: none;
     }
   }
   .btm_section {

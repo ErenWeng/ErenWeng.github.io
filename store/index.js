@@ -1,7 +1,6 @@
 export const state = () => ({
   toggleSidebar: false,
   toggleTagList: true,
-  tagsCount: [],
   isLoading: true,
   colorTheme: 'light',
 })
@@ -18,9 +17,6 @@ export const mutations = {
   },
   SET_COLOR_THEME(state, status) {
     state.colorTheme = status
-  },
-  FETCH_TAGS_COUNT(state, params) {
-    state.tagsCount = params
   },
 }
 
@@ -42,32 +38,5 @@ export const actions = {
     commit('SET_COLOR_THEME', type)
     localStorage.setItem('color-mode', type)
     htmlElement.setAttribute('color-mode', type)
-  },
-  async fetchTagsCount({ commit }) {
-    const baseURL = `/_content`
-    const filter = `/articles?only=tags`
-    const tagAPI = await this.$axios.$get(`${baseURL}${filter}`)
-
-    const allTagsInArray = []
-    let allTags = []
-    const tagsCountData = {}
-    let tagsData = []
-
-    for (const idx in tagAPI) {
-      allTagsInArray.push(tagAPI[idx].tags)
-    }
-    allTags = [].concat.apply([], allTagsInArray).sort()
-    allTags.forEach((tag) => {
-      if (!tagsCountData[tag]) tagsCountData[tag] = 0
-      tagsCountData[tag]++
-    })
-    delete tagsCountData.undefined
-    tagsData = Object.keys(tagsCountData).map((el) => ({
-      name: el,
-      slug: el.replace(' ', '_'),
-      count: tagsCountData[el],
-    }))
-
-    commit('FETCH_TAGS_COUNT', tagsData)
   },
 }

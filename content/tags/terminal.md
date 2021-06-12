@@ -1,4 +1,4 @@
 ---
 name: terminal
-description: NuxtJS is an open source framework making web development simple and powerful.
+description: An electronic or electromechanical hardware device that is used for entering data into, and displaying data from, a computer or a computing system.
 ---

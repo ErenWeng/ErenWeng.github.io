@@ -1,22 +1,16 @@
 <template>
-  <div class="article_list_page">
-    <div v-show="$route.params.tag" class="tag_prompt">
-      Tagged - {{ $route.params.tag }}
-    </div>
+  <div class="tags_page">
     <transition-group
       v-show="showContent"
       :class="['article_list', { animation: !$store.state.isLoading }]"
       tag="ul"
     >
-      <ArticleCard
-        v-for="(article, idx) in sliceArray[activePage]"
+      <TagsCard
+        v-for="(tag, idx) in sliceArray[activePage]"
         :key="`key-${idx}`"
-        :title="article.title"
-        :description="article.description"
-        :img="article.img"
-        :tags="article.tags"
-        :slug="article.slug"
-        :created-at="article.createdAt"
+        :title="tag.name"
+        :description="tag.description"
+        :img="tag.img"
       />
     </transition-group>
     <div class="pagination_bar">
@@ -36,7 +30,7 @@
 export default {
   name: 'HomePage',
   props: {
-    articles: {
+    tagsList: {
       type: Array,
       default: () => [],
     },
@@ -45,7 +39,7 @@ export default {
     return {
       sliceArray: [],
       activePage: 0,
-      articlesCount: 8,
+      tagsListCount: 8,
       showContent: true,
     }
   },
@@ -74,8 +68,8 @@ export default {
       }
     },
     handleSliceArray() {
-      for (let i = 0; i < this.articles.length; i = i + this.articlesCount) {
-        this.sliceArray.push(this.articles.slice(i, i + this.articlesCount))
+      for (let i = 0; i < this.tagsList.length; i = i + this.tagsListCount) {
+        this.sliceArray.push(this.tagsList.slice(i, i + this.tagsListCount))
       }
     },
   },
@@ -83,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article_list_page {
+.tags_page {
   position: relative;
   height: 100%;
   .tag_prompt {
