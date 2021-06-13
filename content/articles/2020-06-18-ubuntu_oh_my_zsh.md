@@ -32,20 +32,20 @@ tags:
 
   3.git
 
-  &emsp;[git 官網](https://git-scm.com/book/zh-tw/v2/%E9%96%8B%E5%A7%8B-Git-%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8)
+  [git 官網](https://git-scm.com/book/zh-tw/v2/%E9%96%8B%E5%A7%8B-Git-%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8)
 
   4.npm
 
-  &emsp;[npm 官網](https://www.npmjs.com/get-npm)
+  [npm 官網](https://www.npmjs.com/get-npm)
 
 <br>
 
 - 系統要更新
 
-  ```bash
-  $sudo apt-get update
-  $sudo apt-get upgrade
-  ```
+```bash
+$sudo apt-get update
+$sudo apt-get upgrade
+```
 
 <br>
 
@@ -53,17 +53,17 @@ tags:
 
 - 輸入以下指令
 
-  ```bash
-  $sudo apt-get install zsh
-  ```
+```bash
+$sudo apt-get install zsh
+```
 
 <br>
 
 - 檢查是否安裝成功
 
-  ```bash
-  $cat /etc/shells
-  ```
+```bash
+$cat /etc/shells
+```
 
 （出現 /usr/bin/zsh 就是安裝成功）
 
@@ -73,15 +73,15 @@ tags:
 
   1.修改預設的 Shell 為 zsh
 
-  ```bash
-  $chsh -s /bin/zsh
-  ```
+```bash
+$chsh -s /bin/zsh
+```
 
-  2.修改預設的 Shell 為 bash
+2.修改預設的 Shell 為 bash
 
-  ```bash
-  $chsh -s /bin/bash
-  ```
+```bash
+$chsh -s /bin/bash
+```
 
 <br>
 
@@ -89,13 +89,13 @@ tags:
 
 - curl 及 wget 選一個即可
 
-  ```bash
-  #via curl
-  $sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```bash
+#via curl
+$sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-  #via wget
-  $sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-  ```
+#via wget
+$sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
 
 <br>
 
@@ -118,10 +118,10 @@ $sudo npm install --global pure-prompt
 
 - 找個地方建立資料夾，複製 Pure 的 repo
 
-  ```bash
-  mkdir -p "$HOME/.zsh"
-  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-  ```
+```bash
+mkdir -p "$HOME/.zsh"
+git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+```
 
 <br>
 
@@ -194,153 +194,153 @@ source ~/.zshrc
 
 其中的 "icon": 可以自己找圖，然後放在`/mnt/c/Users/你的名字/AppData/Local/Microsoft/WindowsApps/Microsoft.WindowsTerminal_8wekyb3d8bbwe`
 
-```
+```json
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{78e390db-1bff-4533-9d7c-20f53d8bafa1}",
-    "initialRows": 30,
-    "initialCols": 120,
-    "alwaysShowTabs": true,
-    "showTerminalTitleInTitlebar": true,
-    "experimental_showTabsInTitlebar": true,
-    "profiles": [
-        {
-            "startingDirectory": "%USERPROFILE%",
-            "guid": "{08b5e85b-3615-463d-8df1-70bc4703863f}",
-            "name": "CMD",
-            "colorscheme": "Campbell",
-            "historySize": 9001,
-            "snapOnInput": true,
-            "cursorColor": "#FFFFFF",
-            "cursorShape": "bar",
-            "commandline": "cmd.exe",
-            "fontFace": "Consolas",
-            "fontSize": 12,
-            "acrylicOpacity": 0.75,
-            "useAcrylic": true,
-            "closeOnExit": true,
-            "padding": "0, 0, 0, 0",
-            "icon": "ms-appdata:///roaming/CMD_32px.png"
-        },
-        {
-            "startingDirectory": "%USERPROFILE%",
-            "guid": "{95e05ea2-6bad-4896-bcdf-a4f96c885cc8}",
-            "name": "PowerShell",
-            "background": "#002731",
-            "colorscheme": "Campbell",
-            "historySize": 9001,
-            "snapOnInput": true,
-            "cursorColor": "#FFFFFF",
-            "cursorShape": "bar",
-            "commandline": "powershell.exe",
-            "fontFace": "Consolas",
-            "fontSize": 12,
-            "acrylicOpacity": 0.5,
-            "useAcrylic": false,
-            "closeOnExit": true,
-            "padding": "0, 0, 0, 0",
-            "icon": "ms-appdata:///roaming/powershell_32px.png"
-        },
-        {
-            "guid": "{78e390db-1bff-4533-9d7c-20f53d8bafa1}",
-            "name": "Ubuntu",
-            "colorscheme": "Campbell",
-            "historySize": 9001,
-            "snapOnInput": true,
-            "cursorColor": "#FFFFFF",
-            "cursorShape": "bar",
-            "commandline": "wsl ~",
-            "fontFace": "Consolas",
-            "fontSize": 12,
-            "acrylicOpacity": 0.85,
-            "useAcrylic": true,
-            "closeOnExit": false,
-            "padding": "0, 0, 0, 0",
-            "icon": "ms-appdata:///roaming/linux_32px.png"
-        },
-        {
-            "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
-            "hidden": false,
-            "name": "Ubuntu-18.04",
-            "source": "Windows.Terminal.Wsl"
-        },
-        {
-            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-            "hidden": false,
-            "name": "Azure Cloud Shell",
-            "source": "Windows.Terminal.Azure"
-        }
-    ],
-    "schemes": [
-        {
-            "name": "Campbell",
-            "foreground": "#A7B191",
-            "background": "#0C0C0C",
-            "colors": [
-                "#0C0C0C",
-                "#C50F1F",
-                "#13A10E",
-                "#C19C00",
-                "#0037DA",
-                "#881798",
-                "#3A96DD",
-                "#CCCCCC",
-                "#767676",
-                "#E74856",
-                "#16C60C",
-                "#F9F1A5",
-                "#3B78FF",
-                "#B4009E",
-                "#61D6D6",
-                "#F2F2F2"
-            ]
-        },
-        {
-            "name": "Solarized Dark",
-            "foreground": "#FDF6E3",
-            "background": "#073642",
-            "colors": [
-                "#073642",
-                "#D30102",
-                "#859900",
-                "#B58900",
-                "#268BD2",
-                "#D33682",
-                "#2AA198",
-                "#EEE8D5",
-                "#002B36",
-                "#CB4B16",
-                "#586E75",
-                "#657B83",
-                "#839496",
-                "#6C71C4",
-                "#93A1A1",
-                "#FDF6E3"
-            ]
-        },
-        {
-            "name": "Solarized Light",
-            "foreground": "#073642",
-            "background": "#FDF6E3",
-            "colors": [
-                "#073642",
-                "#D30102",
-                "#859900",
-                "#B58900",
-                "#268BD2",
-                "#D33682",
-                "#2AA198",
-                "#EEE8D5",
-                "#002B36",
-                "#CB4B16",
-                "#586E75",
-                "#657B83",
-                "#839496",
-                "#6C71C4",
-                "#93A1A1",
-                "#FDF6E3"
-            ]
-        }
-    ]
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "defaultProfile": "{78e390db-1bff-4533-9d7c-20f53d8bafa1}",
+  "initialRows": 30,
+  "initialCols": 120,
+  "alwaysShowTabs": true,
+  "showTerminalTitleInTitlebar": true,
+  "experimental_showTabsInTitlebar": true,
+  "profiles": [
+    {
+      "startingDirectory": "%USERPROFILE%",
+      "guid": "{08b5e85b-3615-463d-8df1-70bc4703863f}",
+      "name": "CMD",
+      "colorscheme": "Campbell",
+      "historySize": 9001,
+      "snapOnInput": true,
+      "cursorColor": "#FFFFFF",
+      "cursorShape": "bar",
+      "commandline": "cmd.exe",
+      "fontFace": "Consolas",
+      "fontSize": 12,
+      "acrylicOpacity": 0.75,
+      "useAcrylic": true,
+      "closeOnExit": true,
+      "padding": "0, 0, 0, 0",
+      "icon": "ms-appdata:///roaming/CMD_32px.png"
+    },
+    {
+      "startingDirectory": "%USERPROFILE%",
+      "guid": "{95e05ea2-6bad-4896-bcdf-a4f96c885cc8}",
+      "name": "PowerShell",
+      "background": "#002731",
+      "colorscheme": "Campbell",
+      "historySize": 9001,
+      "snapOnInput": true,
+      "cursorColor": "#FFFFFF",
+      "cursorShape": "bar",
+      "commandline": "powershell.exe",
+      "fontFace": "Consolas",
+      "fontSize": 12,
+      "acrylicOpacity": 0.5,
+      "useAcrylic": false,
+      "closeOnExit": true,
+      "padding": "0, 0, 0, 0",
+      "icon": "ms-appdata:///roaming/powershell_32px.png"
+    },
+    {
+      "guid": "{78e390db-1bff-4533-9d7c-20f53d8bafa1}",
+      "name": "Ubuntu",
+      "colorscheme": "Campbell",
+      "historySize": 9001,
+      "snapOnInput": true,
+      "cursorColor": "#FFFFFF",
+      "cursorShape": "bar",
+      "commandline": "wsl ~",
+      "fontFace": "Consolas",
+      "fontSize": 12,
+      "acrylicOpacity": 0.85,
+      "useAcrylic": true,
+      "closeOnExit": false,
+      "padding": "0, 0, 0, 0",
+      "icon": "ms-appdata:///roaming/linux_32px.png"
+    },
+    {
+      "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+      "hidden": false,
+      "name": "Ubuntu-18.04",
+      "source": "Windows.Terminal.Wsl"
+    },
+    {
+      "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+      "hidden": false,
+      "name": "Azure Cloud Shell",
+      "source": "Windows.Terminal.Azure"
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Campbell",
+      "foreground": "#A7B191",
+      "background": "#0C0C0C",
+      "colors": [
+        "#0C0C0C",
+        "#C50F1F",
+        "#13A10E",
+        "#C19C00",
+        "#0037DA",
+        "#881798",
+        "#3A96DD",
+        "#CCCCCC",
+        "#767676",
+        "#E74856",
+        "#16C60C",
+        "#F9F1A5",
+        "#3B78FF",
+        "#B4009E",
+        "#61D6D6",
+        "#F2F2F2"
+      ]
+    },
+    {
+      "name": "Solarized Dark",
+      "foreground": "#FDF6E3",
+      "background": "#073642",
+      "colors": [
+        "#073642",
+        "#D30102",
+        "#859900",
+        "#B58900",
+        "#268BD2",
+        "#D33682",
+        "#2AA198",
+        "#EEE8D5",
+        "#002B36",
+        "#CB4B16",
+        "#586E75",
+        "#657B83",
+        "#839496",
+        "#6C71C4",
+        "#93A1A1",
+        "#FDF6E3"
+      ]
+    },
+    {
+      "name": "Solarized Light",
+      "foreground": "#073642",
+      "background": "#FDF6E3",
+      "colors": [
+        "#073642",
+        "#D30102",
+        "#859900",
+        "#B58900",
+        "#268BD2",
+        "#D33682",
+        "#2AA198",
+        "#EEE8D5",
+        "#002B36",
+        "#CB4B16",
+        "#586E75",
+        "#657B83",
+        "#839496",
+        "#6C71C4",
+        "#93A1A1",
+        "#FDF6E3"
+      ]
+    }
+  ]
 }
 ```

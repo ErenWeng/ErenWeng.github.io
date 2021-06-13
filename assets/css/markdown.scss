@@ -325,6 +325,11 @@
       font-size: 85%;
       background-color: rgba(27, 31, 35, 0.05);
       border-radius: 3px;
+      overflow-x: scroll;
+    }
+    * > code {
+      white-space: pre-wrap;
+      word-break: break-all;
     }
     pre > code {
       background: transparent;
@@ -335,7 +340,7 @@
         word-wrap: break-word;
       }
       pre[class*='language-'] {
-        background-color: var(--main-color);
+        background-color: #eaeaea;
         text-shadow: none;
         border-radius: 8px;
         margin-bottom: 16px;

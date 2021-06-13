@@ -1,23 +1,21 @@
 <template>
   <div class="color_switcher">
-    <transition-group name="switch" mode="out-in">
-      <div
-        v-show="$store.state.colorTheme === 'light'"
-        key="light"
-        class="click_icon"
-        @click="colorSwitch('dark')"
-      >
-        <ph-sun :size="24" weight="thin" class="switch_icon" />
-      </div>
-      <div
-        v-show="$store.state.colorTheme === 'dark'"
-        key="dark"
-        class="click_icon"
-        @click="colorSwitch('light')"
-      >
-        <ph-moon-stars :size="24" weight="thin" class="switch_icon" />
-      </div>
-    </transition-group>
+    <div
+      v-show="$store.state.colorTheme === 'light'"
+      key="light"
+      class="click_icon"
+      @click="colorSwitch('dark')"
+    >
+      <ph-sun :size="24" weight="thin" class="switch_icon" />
+    </div>
+    <div
+      v-show="$store.state.colorTheme === 'dark'"
+      key="dark"
+      class="click_icon"
+      @click="colorSwitch('light')"
+    >
+      <ph-moon-stars :size="24" weight="thin" class="switch_icon" />
+    </div>
   </div>
 </template>
 
@@ -44,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .color_switcher {
+  z-index: 100;
   position: fixed;
   top: 0;
   right: 0;
@@ -64,13 +63,5 @@ export default {
   &:hover {
     color: var(--green-light);
   }
-}
-.switch-enter-active,
-.switch-leave-active {
-  transition: opacity 0.1s;
-}
-.switch-enter,
-.switch-leave-to {
-  opacity: 0;
 }
 </style>
