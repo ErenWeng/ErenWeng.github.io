@@ -4,7 +4,7 @@ export default {
     base: '/',
   },
   head: {
-    title: 'my-blog',
+    title: "Eren's blog",
     htmlAttrs: {
       lang: 'en',
     },
