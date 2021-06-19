@@ -3,7 +3,7 @@ title: Javascript 中的 fetch 是什麼
 description: 隨著Ajax的技術成熟，一些簡化Ajax使用方法的程式庫也相繼問世...
 img: https://cdn.icon-icons.com/icons2/2415/PNG/512/javascript_original_logo_icon_146455.png
 alt: javascript
-createdAt: 2020-12-22 18:54:08 +0800
+createdAt: 2020-10-22 18:54:08 +0800
 tags:
   - javascript
 ---

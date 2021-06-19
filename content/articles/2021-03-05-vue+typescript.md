@@ -1,7 +1,7 @@
 ---
 title: Vue 導入 TypeScript
 description: 在 Vue 中使用 TypeScript 的基本認識
-img: https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_plain_logo_icon_146316.png
+img: https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_original_logo_icon_146317.png
 alt: javascript
 createdAt: 2021-03-05 20:34:05 +0800
 tags:
@@ -41,7 +41,7 @@ tags:
 在終端機跑這行
 
 ```bash
-`vue add typescript`
+vue add typescript
 ```
 
 ## 開始使用 TypeScript

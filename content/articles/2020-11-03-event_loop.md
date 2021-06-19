@@ -3,7 +3,7 @@ title: Javscript 的 concurrency model 和 event loop 是什麼
 description: Javascript 的背後是怎麼執行的？
 img: https://cdn.icon-icons.com/icons2/2415/PNG/512/javascript_original_logo_icon_146455.png
 alt: javascript
-createdAt: 2021-01-03 18:54:08 +0800
+createdAt: 2020-11-03 18:54:08 +0800
 tags:
   - javascript
 ---
