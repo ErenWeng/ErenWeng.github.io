@@ -16,6 +16,7 @@
     }
     * {
       box-sizing: border-box;
+      word-break: break-all;
     }
     &::after,
     &::before {
@@ -299,6 +300,7 @@
     td,
     th {
       padding: 0;
+      word-break: break-all;
     }
     table th {
       font-weight: 600;
